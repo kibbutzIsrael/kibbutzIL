@@ -1,0 +1,49 @@
+@import "bootstrap/_functions";
+@import "bootstrap/_variables";
+@import "bootstrap/_mixins";
+@import "bootstrap/vendor/rfs";
+$rfs-breakpoint: 992;
+$enable-negative-margins: true;
+
+
+//-------------------- Base Colors --------------------//
+
+$theme-color: 			#4843d2;
+
+$theme-hover-color :    darken($theme-color, 10%);
+
+$body-color:			#4c4d4d;
+
+
+//------------- Fonts -------------//
+
+$body-font-family: 'Poppins', sans-serif;
+
+
+//------------- Social Icons Colors -------------//
+
+$facebook:        #3B5998;
+$twitter:         #00ACEE;
+$google:          #DD4B39;
+$linkedin:        #0E76A8;
+$youtube:         #C4302B;
+$instagram:       #3F729B;
+$dribbble: 		  #ea4c89;
+$github: 		  #333333;
+$behance: 		  #053eff;
+$reddit:          #C6C6C6;
+$pinterest: 	  #cc2127;
+$vk:              #2B587A;
+$rss:             #EE802F;
+$skype:           #00AFF0;
+$xing:            #126567;
+$tumblr:          #34526F;
+$email:           #6567A5;
+$delicious:       #205CC0;
+$stumbleupon:     #F74425;
+$digg:            #191919;
+$blogger:         #FC4F08;
+$flickr:          #FF0084;
+$vimeo:           #86C9EF;
+$yahoo:           #720E9E;
+$appstore:        #000;

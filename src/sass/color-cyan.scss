@@ -1,0 +1,23 @@
+@import "variables";
+
+/*============================
+	 Theme Color - Cyan
+==============================*/
+
+$theme-color: 			$cyan;
+$theme-hover-color :    darken($theme-color, 7%);
+
+
+:root {
+	// Themecolor
+	--#{$prefix}themecolor:  					#{$theme-color};
+	--#{$prefix}themecolor-rgb: 				#{to-rgb($theme-color)};
+	
+	--#{$prefix}themehovercolor:  				#{$theme-hover-color};
+	--#{$prefix}themehovercolor-rgb: 			#{to-rgb($theme-hover-color)};
+	
+	--#{$prefix}primary-text-emphasis:			#{shade-color($theme-color, 60%)};
+	--#{$prefix}primary-bg-subtle:				#{tint-color($theme-color, 80%)};
+	--#{$prefix}primary-border-subtle:			#{tint-color($theme-color, 60%)};
+
+}
