@@ -176,7 +176,7 @@ function ClassicHeader() {
                     setIsNavModalClose(true);
                   }}
                 >
-                  Faq
+                  RegistrationForm
                 </Link>
               </li>
               <li className="nav-item">
@@ -210,8 +210,26 @@ function ClassicHeader() {
                     setIsNavModalClose(true);
                   }}
                 >
-                  Download
+                  Downloadd
                 </Link>
+
+
+                <Link
+                  className="nav-link "
+                  smooth="easeInOutQuint"
+                  duration={scrollDuration}
+                  style={{ cursor: "pointer" }}
+                  activeClass="active"
+                  spy
+                  to="contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsNavModalClose(true);
+                  }}
+                >
+                  Contact Us
+                </Link>
+                
               </li>
             </ul>
           </div>
