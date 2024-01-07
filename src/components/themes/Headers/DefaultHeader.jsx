@@ -191,7 +191,7 @@ function DefaultHeader() {
                     setIsNavModalClose(true);
                   }}
                 >
-                  Faq
+                  טופס הרשמה
                 </Link>
               </li>
               <li className="nav-item">
