@@ -9,6 +9,9 @@ import Select from '@mui/material/Select';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import InputLabel from '@mui/material/InputLabel';  // Add this line
+import axios from 'axios';
+
+
 
 const RegistrationForm = () => {
   // Schema and validation setup with Yup
@@ -18,7 +21,6 @@ const RegistrationForm = () => {
     phoneNumber: Yup.string().required('Phone number is a required field'),
     instituteName: Yup.string().required('Institute name is a required field'),
   });
-  
 
   // Form setup with useFormik
   const formik = useFormik({
@@ -30,9 +32,21 @@ const RegistrationForm = () => {
       BodyName: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      console.log('נשלח טופס רישום עם הנתונים:', values);
-      // Additional form submission logic can be added here
+
+    onSubmit: async (values) => {
+      try {
+        // Send the form data to the server using Axios
+        const response = await axios.post('endpoint backend kibutz', values);
+
+        // Log the server response (modify as needed)
+        console.log('Server Response:', response.data);
+
+        // Clear the form values after a successful submission
+        formik.resetForm();
+      } catch (error) {
+        // Handle any errors during the request (e.g., display an error message)
+        console.error('Error submitting form:', error);
+      }
     },
   });
 
@@ -95,7 +109,7 @@ const RegistrationForm = () => {
             error={formik.touched.email && Boolean(formik.errors.email)}
             helperText={formik.touched.email && formik.errors.email}
           />
-        
+
 
           <TextField
             fullWidth
