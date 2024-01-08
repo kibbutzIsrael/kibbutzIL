@@ -75,6 +75,79 @@ function DefaultHeader() {
             }
           >
             <ul className="navbar-nav">
+           
+
+            <li className="nav-item">
+                <Link
+                  className="nav-link "
+                  smooth="easeInOutQuint"
+                  duration={scrollDuration}
+                  style={{ cursor: "pointer" }}
+                  activeClass="active"
+                  spy
+                  to="contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsNavModalClose(true);
+                  }}
+                >
+                   צור קשר
+                </Link>
+              </li>
+           
+  
+              <li className="nav-item">
+                <Link
+                  className="nav-link "
+                  smooth="easeInOutQuint"
+                  duration={scrollDuration}
+                  style={{ cursor: "pointer" }}
+                  activeClass="active"
+                  spy
+                  to="subscribeMain"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsNavModalClose(true);
+                  }}
+                >
+                  רישום למתנדב/ת
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link "
+                  smooth="easeInOutQuint"
+                  duration={scrollDuration}
+                  style={{ cursor: "pointer" }}
+                  activeClass="active"
+                  spy
+                  to="subscribe"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsNavModalClose(true);
+                  }}
+                >
+                  ארגונים
+                </Link>
+              </li>
+   
+                 <li className="nav-item">
+                <Link
+                  className="nav-link "
+                  smooth="easeInOutQuint"
+                  duration={scrollDuration}
+                  style={{ cursor: "pointer" }}
+                  activeClass="active"
+                  spy
+                  to="about"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsNavModalClose(true);
+                  }}
+                >
+                  אודות
+                </Link>
+              </li>
               <li className="nav-item">
                 <Link
                   className="nav-link "
@@ -89,100 +162,7 @@ function DefaultHeader() {
                     setIsNavModalClose(true);
                   }}
                 >
-                  Home
-                </Link>
-              </li>
-           
-           
-              <li className="nav-item">
-                <Link
-                  className="nav-link "
-                  smooth="easeInOutQuint"
-                  duration={scrollDuration}
-                  style={{ cursor: "pointer" }}
-                  activeClass="active"
-                  spy
-                  to="testimonial"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsNavModalClose(true);
-                  }}
-                >
-                  
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link "
-                  smooth="easeInOutQuint"
-                  duration={scrollDuration}
-                  style={{ cursor: "pointer" }}
-                  activeClass="active"
-                  spy
-                  to="pricing"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsNavModalClose(true);
-                  }}
-                >
-                  טופס הרשמה למתנדב/ת
-
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link "
-                  smooth="easeInOutQuint"
-                  duration={scrollDuration}
-                  style={{ cursor: "pointer" }}
-                  activeClass="active"
-                  spy
-                  to="faq"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsNavModalClose(true);
-                  }}
-                >
-                  טופס הרשמה
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link "
-                  smooth="easeInOutQuint"
-                  duration={scrollDuration}
-                  style={{ cursor: "pointer" }}
-                  activeClass="active"
-                  spy
-                  to="contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsNavModalClose(true);
-                  }}
-                >
-                  Contact Us
-                </Link>
-              </li>
-              <li className="align-items-center h-auto ms-lg-3">
-                <Link
-                  className={
-                    "nav-link btn rounded-pill fw-600 shadow-none d-inline-block mt-3 mt-lg-0 smooth-scroll " +
-                    (appliedConfig.appliedIntroBg === IntroBgConfig.Default
-                      ? "btn-dark "
-                      : "btn-light ")
-                  }
-                  smooth="easeInOutQuint"
-                  duration={scrollDuration}
-                  style={{ cursor: "pointer" }}
-                  activeClass="active"
-                  spy
-                  to="download"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsNavModalClose(true);
-                  }}
-                >
-                  Download
+                  דף הבית
                 </Link>
               </li>
             </ul>

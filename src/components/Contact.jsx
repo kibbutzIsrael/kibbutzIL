@@ -172,6 +172,11 @@ const Contact = () => {
               </div> */}
               <h3>כתובת האתר</h3>
               <p>info@mxapp.com</p>
+        
+            </div>
+            <div className="featured-box style-1">
+              <h3>מייל</h3>
+              <p>kibbutzil@kibbutzil.community</p>
             </div>
           </section>
         </div>

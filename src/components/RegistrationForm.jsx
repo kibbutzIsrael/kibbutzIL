@@ -51,7 +51,7 @@ const RegistrationForm = () => {
   });
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <div id="subscribe" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       {/* Centering the form vertically and horizontally */}
       <form
         onSubmit={formik.handleSubmit}

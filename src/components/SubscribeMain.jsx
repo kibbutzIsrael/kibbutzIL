@@ -73,7 +73,7 @@ const RegistrationVolForm = () => {
   });
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <div id='subscribeMain' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       <form onSubmit={formik.handleSubmit} className="form" style={{ maxWidth: '400px', width: '100%', padding: '10px' }}>
         <Typography variant="h4" component="div" gutterBottom sx={{ textAlign: 'right' }}>
           <br></br>
