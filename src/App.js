@@ -18,6 +18,7 @@ import Pricing from "./components/RegistrationVolForm";
 import HowItWorks from "./components/HowItWorks";
 import GetTheApp from "./components/GetTheApp";
 import Subscribe from "./components/RegistrationForm";
+import SubscribeMain from "./components/SubscribeMain";
 import SideHeader from "./components/themes/Headers/SideHeader";
 import DefaultHeader from "./components/themes/Headers/DefaultHeader";
 import Intro1 from "./components/themes/Intro/Intro1";
@@ -116,9 +117,10 @@ function App() {
             <AppScreenshots></AppScreenshots>
             <HowItWorks></HowItWorks>
             <Testimonials></Testimonials>
-            <Pricing></Pricing>
-            <GetTheApp></GetTheApp>
-            <FAQs></FAQs>
+            {/* <Pricing></Pricing> */}
+            {/* <GetTheApp></GetTheApp> */}
+            {/* <FAQs></FAQs> */}
+            <SubscribeMain></SubscribeMain>
             <Subscribe></Subscribe>
             <Contact></Contact>
           </div>
