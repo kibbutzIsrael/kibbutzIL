@@ -140,7 +140,7 @@ function SideHeader({ darkTheme = false }) {
                     setIsNavModalClose(true);
                   }}
                 >
-                  Pricing
+                  טופס הרשמה למתנדב/ת
                 </Link>
               </li>
               <li className="nav-item">

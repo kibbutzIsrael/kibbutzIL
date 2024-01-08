@@ -14,7 +14,7 @@ import FAQs from "./components/FAQs";
 import ClassicHeader from "./components/themes/Headers/ClassicHeader";
 import Features from "./components/Features";
 import AppScreenshots from "./components/AppScreenshots";
-import Pricing from "./components/Pricing";
+import Pricing from "./components/RegistrationVolForm";
 import HowItWorks from "./components/HowItWorks";
 import GetTheApp from "./components/GetTheApp";
 import Subscribe from "./components/RegistrationForm";

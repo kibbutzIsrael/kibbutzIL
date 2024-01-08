@@ -44,15 +44,15 @@ function DefaultHeader() {
       >
         <div className="container-lg">
           {/* Logo */}
-          <a className="logo" href="/" title="MXapp">
+          <a className="logo" href="/" title="KibutzIL">
             <img
               src={
                 appliedConfig.appliedHeader === HeaderConfig.DefaultHeader &&
-                appliedConfig.appliedIntroBg === IntroBgConfig.Default
+                  appliedConfig.appliedIntroBg === IntroBgConfig.Default
                   ? "images/logo.png"
                   : "images/logo-light.png"
               }
-              alt="MXapp"
+              alt="KibutzIL"
             />
           </a>
           {/* Logo End */}
@@ -92,57 +92,8 @@ function DefaultHeader() {
                   Home
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link "
-                  smooth="easeInOutQuint"
-                  duration={scrollDuration}
-                  style={{ cursor: "pointer" }}
-                  activeClass="active"
-                  spy
-                  to="about"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsNavModalClose(true);
-                  }}
-                >
-                  About
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link "
-                  smooth="easeInOutQuint"
-                  duration={scrollDuration}
-                  style={{ cursor: "pointer" }}
-                  activeClass="active"
-                  spy
-                  to="features"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsNavModalClose(true);
-                  }}
-                >
-                  Features
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link "
-                  smooth="easeInOutQuint"
-                  duration={scrollDuration}
-                  style={{ cursor: "pointer" }}
-                  activeClass="active"
-                  spy
-                  to="screenshot"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsNavModalClose(true);
-                  }}
-                >
-                  Screenshot
-                </Link>
-              </li>
+           
+           
               <li className="nav-item">
                 <Link
                   className="nav-link "
@@ -157,7 +108,7 @@ function DefaultHeader() {
                     setIsNavModalClose(true);
                   }}
                 >
-                  Testimonial
+                  
                 </Link>
               </li>
               <li className="nav-item">
@@ -174,7 +125,8 @@ function DefaultHeader() {
                     setIsNavModalClose(true);
                   }}
                 >
-                  Pricing
+                  טופס הרשמה למתנדב/ת
+
                 </Link>
               </li>
               <li className="nav-item">
