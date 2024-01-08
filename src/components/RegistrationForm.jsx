@@ -95,19 +95,18 @@ const RegistrationForm = () => {
             fullWidth
             id="email"
             name="email"
-            label="Email*"
+            // label="*שם מלא"
             variant="outlined"
-            InputLabelProps={{ sx: { textAlign: 'right' } }}
-            InputProps={{
-              sx: { textAlign: 'right' },
-              inputProps: { dir: 'ltr' }, // Set the direction to left-to-right
-            }}
-            type="email"
+            placeholder="מייל*"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
             error={formik.touched.email && Boolean(formik.errors.email)}
             helperText={formik.touched.email && formik.errors.email}
+            InputProps={{
+              sx: { textAlign: 'right' },
+              inputProps: { dir: 'rtl' }, // Set the direction to right-to-left
+            }}
           />
 
 
