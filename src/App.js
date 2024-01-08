@@ -10,13 +10,10 @@ import {
   appliedConfig,
 } from "./config/commonConfig";
 import { Tooltip } from "./components/Tooltip";
-import FAQs from "./components/FAQs";
 import ClassicHeader from "./components/themes/Headers/ClassicHeader";
 import Features from "./components/Features";
 import AppScreenshots from "./components/AppScreenshots";
-import Pricing from "./components/RegistrationVolForm";
 import HowItWorks from "./components/HowItWorks";
-import GetTheApp from "./components/GetTheApp";
 import Subscribe from "./components/RegistrationForm";
 import SubscribeMain from "./components/SubscribeMain";
 import SideHeader from "./components/themes/Headers/SideHeader";
