@@ -41,8 +41,8 @@ const FAQs = () => {
         </p>
         <div className="row">
           <div className="col-md-10 col-lg-8 mx-auto">
-            <hr className="mb-0 opacity-1" />
-            <Accordion flush defaultActiveKey="0" className="arrow-end">
+            <hr className="mb-0 opacity-1 text-end" />
+            <Accordion flush defaultActiveKey="0" className="arrow-end text-end">
               {faqsData.length > 0 &&
                 faqsData.map((faq, index) => (
                   <Accordion.Item eventKey={index} key={index}>

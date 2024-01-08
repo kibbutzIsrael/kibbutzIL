@@ -14,11 +14,10 @@ function Features() {
       }
     >
       <div className="container">
-        <h2 className="text-9 fw-600 text-center">App's Features</h2>
+        <h2 className="text-9 fw-600 text-center">קול קורא  2024</h2>
         <hr className="heading-separator-line bg-primary opacity-10 mx-auto" />
         <p className="lead text-center mb-5">
-          You can present your app features. It is all very easy!
-        </p>
+        לייצר אימפקט משמעותי ולהשפיע על החברה הישראלית .        </p>
         <div className="row">
           <div className="col-lg-4 align-self-center">
             <div className="row justify-content-center">
@@ -27,10 +26,9 @@ function Features() {
                   <div className="featured-box-icon bg-body-secondary rounded-circle">
                     <i className="fas fa-pencil-ruler" />
                   </div>
-                  <h3>Exclusive Design</h3>
+                  <h3>בניית קהילה מחוזקת</h3>
                   <p>
-                    Lisque persius interesset his et, in quot quidam persequeris
-                    vim, ad mea essent possim iriure.
+                  ליצור חוויות משותפות ולשדרג את האופי החברתי של הקהילה.
                   </p>
                 </div>
               </div>
@@ -39,10 +37,10 @@ function Features() {
                   <div className="featured-box-icon bg-body-secondary rounded-circle">
                     <i className="fas fa-cloud-upload-alt" />
                   </div>
-                  <h3>Your Data in Cloud</h3>
+                  <h3>מיזמים ופרויקטים משולבים</h3>
                   <p>
-                    Lisque persius interesset his et, in quot quidam persequeris
-                    vim, ad mea essent possim iriure.
+                  תרומה יכולה ליצור דינמיקה של שיתוף פעולה וחידוש בפרויקטים ומיזמים שמתבצעים בקרבת הקהילה.
+
                   </p>
                 </div>
               </div>
@@ -51,10 +49,9 @@ function Features() {
                   <div className="featured-box-icon bg-body-secondary rounded-circle">
                     <i className="fas fa-tags" />
                   </div>
-                  <h3>Low Pricing</h3>
+                  <h3> פיתוח אישי ומקצועי</h3>
                   <p>
-                    Lisque persius interesset his et, in quot quidam persequeris
-                    vim, ad mea essent possim iriure.
+                  השתתפות בתרומה לקהילה יכולה להבטיח פיתוח אישי ומקצועי, דרך ראיית עולם רחבה יותר ומקום לחשיבה יצירתית.
                   </p>
                 </div>
               </div>
@@ -74,10 +71,10 @@ function Features() {
                   <div className="featured-box-icon bg-body-secondary rounded-circle">
                     <i className="fas fa-lock" />
                   </div>
-                  <h3>Fully Secured</h3>
+                  <h3> יצירת אימפקט חברתי</h3>
                   <p>
-                    Lisque persius interesset his et, in quot quidam persequeris
-                    vim, ad mea essent possim iriure.
+                  תרומה יכולה ליצור אימפקט חברתי ממשי, ולסייע לאנשים ולקהילות במגוון דרכים, מתן עזרה לאחרים ויצירת שיפור כלכלי וחברתי.
+סה"כ, התרומה
                   </p>
                 </div>
               </div>
@@ -86,10 +83,9 @@ function Features() {
                   <div className="featured-box-icon bg-body-secondary rounded-circle">
                     <i className="fas fa-paper-plane" />
                   </div>
-                  <h3>Easy to Use</h3>
+                  <h3>רגש של משמעות וסיפוק</h3>
                   <p>
-                    Lisque persius interesset his et, in quot quidam persequeris
-                    vim, ad mea essent possim iriure.
+                  התרומה מקנה תחושה של משמעות וסיפוק כיוון שהיא מעניקה לך הזדמנות לתרום ולהשפיע בצורה חיובית.
                   </p>
                 </div>
               </div>
@@ -98,10 +94,9 @@ function Features() {
                   <div className="featured-box-icon bg-body-secondary rounded-circle">
                     <i className="fas fa-sync-alt" />
                   </div>
-                  <h3>Free Updates</h3>
+                  <h3>בניית קשרים חברתיים</h3>
                   <p>
-                    Lisque persius interesset his et, in quot quidam persequeris
-                    vim, ad mea essent possim iriure.
+                  השתתפות בפעילויות קהילתיות ותרומה מאפשרים לך לבנות קשרים חברתיים, להכיר אנשים חדשים ולהרחיב את רשת ההכרויות שלך.
                   </p>
                 </div>
               </div>
