@@ -79,7 +79,7 @@ function Intro1() {
                       : " ")
                   }
                 >
-                  - Most flexible landing page -
+                  - קהילת המפתחים -
                 </p>
                 <h2
                   className={
@@ -90,7 +90,8 @@ function Intro1() {
                       : " ")
                   }
                 >
-                  Your Mobile App Showcase
+                  
+                  אנחנו מציעים לאנשי מוצר, תוכנה, עיצוב ודאטה, סטארטאפיסטים ויזמים, את היכולת להשפיע על מה שקורה כאן בבית בדרך שהם מכירים הכי טוב - באמצעות חדשנות וטכנולוגיה
                 </h2>
                 <p
                   className={
@@ -101,8 +102,8 @@ function Intro1() {
                       : " ")
                   }
                 >
-                  Create your next mobile app landing page in minutes.
-                </p>
+
+</p>
                 {/* image start */}
                 {appliedConfig.appliedIntroContent ===
                   IntroContentConfig.Image && (
