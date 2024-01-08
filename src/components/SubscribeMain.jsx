@@ -14,15 +14,18 @@ import { useDropzone } from 'react-dropzone';
 
 const RegistrationVolForm = () => {
   const validationSchema = Yup.object({
-    fullName: Yup.string().required('Full name is a required field'),
-    email: Yup.string().email('Invalid email address').required('Email is a required field'),
-    phoneNumber: Yup.string().required('Phone number is a required field'),
-    gender: Yup.string().required('Gender is a required field'),
-    rolesUntilToday: Yup.string().required('Please enter the roles you have been involved in.'),
-    whichRolesToday: Yup.string().required('Please enter the roles you want to be involved!.'),
-    ExpYear: Yup.string().required('Please enter the Amount of year experience.'),
+    fullName: Yup.string().required('שם מלא הוא שדה חובה'),
+    email: Yup.string().email('כתובת דוא"ל אינה חוקית').required('כתובת דוא"ל היא שדה חובה'),
+    phoneNumber: Yup.string().required('מספר הטלפון הוא שדה חובה'),
+    gender: Yup.string().required('בחירת מגדר היא שדה חובה'),
+    rolesUntilToday: Yup.string().required('יש לציין את התפקידים שבהם השתתפת עד כה'),
+    whichRolesToday: Yup.string().required('יש לציין את התפקידים שברצונך להשתתף בהם'),
+    ExpYear: Yup.string().required('יש לציין את מספר שנות הניסיון'),
+  }).test('rtl-concat', ' ', function (value) {
+    // Add right-to-left mark to the error message
+    return this.createError({ message: '\u200F' });
   });
-
+  
   const formik = useFormik({
     initialValues: {
       fullName: '',
@@ -73,6 +76,7 @@ const RegistrationVolForm = () => {
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       <form onSubmit={formik.handleSubmit} className="form" style={{ maxWidth: '400px', width: '100%', padding: '10px' }}>
         <Typography variant="h4" component="div" gutterBottom sx={{ textAlign: 'right' }}>
+          <br></br>
           שאלון למתנדב/ת
         </Typography>
 
@@ -85,6 +89,8 @@ const RegistrationVolForm = () => {
           .נשמח למענה קצר על השאלות הבאות
           <br />
           *חשוב לציין שהתנדבות מתאפשרת לבעלי ניסיון של שנה אחת לפחות
+          <br></br>
+          <br></br>
         </Typography>
 
         <Stack spacing={1}>
@@ -99,7 +105,7 @@ const RegistrationVolForm = () => {
             onBlur={formik.handleBlur}
             value={formik.values.fullName}
             error={formik.touched.fullName && Boolean(formik.errors.fullName)}
-            helperText={formik.touched.fullName && formik.errors.fullName}
+            helperText={formik.touched.fullName && formik.errors.fullName && <span style={{ textAlign: 'right' }}>{formik.errors.fullName}</span>}
             InputProps={{ sx: { textAlign: 'right', fontSize: '12px' }, inputProps: { dir: 'rtl' } }}
           />
           <TextField
@@ -147,11 +153,11 @@ const RegistrationVolForm = () => {
             value={formik.values.phoneNumber}
             error={formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)}
             helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
-            InputProps={{ sx: { textAlign: 'right', fontSize: '12px' , }, inputProps: { dir: 'rtl' } }}
+            InputProps={{ sx: { textAlign: 'right', fontSize: '12px', }, inputProps: { dir: 'rtl' } }}
           />
           <FormControl fullWidth variant="outlined">
-            <InputLabel htmlFor="gender" sx={{ textAlign: 'right', fontSize: '12px' }}>
-              Select Gender*
+            <InputLabel htmlFor="gender" sx={{ textAlign: 'right', fontSize: '24px' }}>
+              {/* *בחירת מין */}
             </InputLabel>
             <Select
               label="מגדר"
@@ -193,7 +199,7 @@ const RegistrationVolForm = () => {
             name="whichRolesToday"
             variant="outlined"
             size="small"
-            placeholder="באיזה תפקידים תרצה לקחת חלק?*"
+            placeholder="באיזה תפקיד תרצה לקחת חלק?*"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.whichRolesToday}
@@ -207,7 +213,7 @@ const RegistrationVolForm = () => {
             name="ExpYear"
             variant="outlined"
             size="small"
-            placeholder="כמה שנות ניסיון יש לך בתחום?*"
+            placeholder="כמה שנות ניסיון יש לך בתחום התפקיד?*"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.ExpYear}
