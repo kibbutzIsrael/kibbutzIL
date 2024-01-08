@@ -8,18 +8,20 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import InputLabel from '@mui/material/InputLabel';  // Add this line
 import axios from 'axios';
+import InputLabel from '@mui/material/InputLabel';
 
-
-
-const RegistrationForm = () => {
+const RegistrationVolForm = () => {
   // Schema and validation setup with Yup
   const validationSchema = Yup.object({
     fullName: Yup.string().required('Full name is a required field'),
     email: Yup.string().email('Invalid email address').required('Email is a required field'),
     phoneNumber: Yup.string().required('Phone number is a required field'),
     instituteName: Yup.string().required('Institute name is a required field'),
+    GenderName: Yup.string().required('Full name is a required field'),
+    gender: Yup.string().required('Gender is a required field'),
+    rolesUntilToday: Yup.string().required('Please enter the roles you have been involved in.'),
+    whichRolesToday: Yup.string().required('Please enter the roles you want to be involved!.'),
   });
 
   // Form setup with useFormik
@@ -58,28 +60,28 @@ const RegistrationForm = () => {
         className="form"
         style={{ maxWidth: '600px', width: '100%', padding: '20px' }}
       >
-        <Typography
-          variant="h4"
-          component="div"
-          gutterBottom
-          sx={{
-            textAlign: 'center',
-            margin: 'auto',
-          }}
-        >
-          !הרשמה מוקדמת לקול קורא
+        <Typography variant="h3" component="div" gutterBottom sx={{ textAlign: 'right' }}>
+          שאלון למתנדב/ת
         </Typography>
-        <br />
 
+        <Typography variant="body1" component="div" sx={{ fontSize: '14px', textAlign: 'right' }}>
+          !היי שמחים לראות אותך כאן איתנו
+          <br />
+          במסגרת הפרויקטים שלנו, המתנדבים שלנו עובדים על פיתוח או הטמעה של פתרונות טכנולוגיים שנועדו
+          לתת מענה לאתגר חברתי כואב
+          <br />
+          .נשמח למענה קצר על השאלות הבאות
+          <br />
+          *חשוב לציין שהתנדבות מתאפשרת לבעלי ניסיון של שנה אחת לפחות
+        </Typography>
 
         <Stack spacing={2}>
-
           <TextField
             fullWidth
             id="fullName"
             name="fullName"
-            // label="*שם מלא"
             variant="outlined"
+            size="small"
             placeholder="שם מלא*"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -95,8 +97,8 @@ const RegistrationForm = () => {
             fullWidth
             id="email"
             name="email"
-            // label="*שם מלא"
             variant="outlined"
+            size="small"
             placeholder="מייל*"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -108,13 +110,29 @@ const RegistrationForm = () => {
               inputProps: { dir: 'rtl' }, // Set the direction to right-to-left
             }}
           />
-
-
+          <TextField
+            fullWidth
+            id="placeliving"
+            name="placeliving"
+            variant="outlined"
+            size="small"
+            placeholder="מקום מגורים*"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.placeliving}
+            error={formik.touched.placeliving && Boolean(formik.errors.placeliving)}
+            helperText={formik.touched.placeliving && formik.errors.placeliving}
+            InputProps={{
+              sx: { textAlign: 'right' },
+              inputProps: { dir: 'rtl' }, // Set the direction to right-to-left
+            }}
+          />
           <TextField
             fullWidth
             id="phoneNumber"
             name="phoneNumber"
             variant="outlined"
+            size="small"
             placeholder="מספר טלפון*"
             onChange={(e) => {
               const numericValue = e.target.value.replace(/\D/g, '');
@@ -131,53 +149,63 @@ const RegistrationForm = () => {
               inputProps: { dir: 'rtl' }, // Set the direction to right-to-left
             }}
           />
-
+          <FormControl fullWidth variant="outlined">
+            <InputLabel htmlFor="gender" sx={{ textAlign: 'right' }}>
+              Select Gender*
+            </InputLabel>
+            <Select
+              label="מגדר"
+              id="gender"
+              name="gender"
+              value={formik.values.gender}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.touched.gender && Boolean(formik.errors.gender)}
+              displayEmpty
+              sx={{ textAlign: 'right' }}
+            >
+              <MenuItem value="" disabled>
+                בחר/י מגדר
+              </MenuItem>
+              <MenuItem value="male">זכר</MenuItem>
+              <MenuItem value="female">נקבה</MenuItem>
+              <MenuItem value="other">אחר</MenuItem>
+            </Select>
+          </FormControl>
           <TextField
             fullWidth
-            id="instituteName"
-            name="instituteName"
-            // label="*שם מלא"
+            id="rolesUntilToday"
+            name="rolesUntilToday"
             variant="outlined"
-            placeholder="שם הגוף"
+            size="small"
+            placeholder="באיזה תפקידים לקחת חלק עד היום?*"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.instituteName}
-            error={formik.touched.instituteName && Boolean(formik.errors.instituteName)}
-            helperText={formik.touched.instituteName && formik.errors.instituteName}
+            value={formik.values.rolesUntilToday}
+            error={formik.touched.rolesUntilToday && Boolean(formik.errors.rolesUntilToday)}
+            helperText={formik.touched.rolesUntilToday && formik.errors.rolesUntilToday}
             InputProps={{
               sx: { textAlign: 'right' },
               inputProps: { dir: 'rtl' }, // Set the direction to right-to-left
             }}
           />
-
-          <FormControl fullWidth variant="outlined">
-            <InputLabel htmlFor="BodyName" sx={{ textAlign: 'right' }} dir="rtl">
-              {/* התחום החברתי של הגוף */}
-            </InputLabel>
-            <Select
-              labelId="BodyName-label"
-              id="BodyName"
-              name="BodyName"
-              value={formik.values.BodyName}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.BodyName && Boolean(formik.errors.BodyName)}
-              sx={{ textAlign: 'right' }}
-              inputProps={{ dir: 'rtl' }}
-            >
-              <MenuItem value="" disabled>
-                בחר/י את התחום החברתי של הגוף
-              </MenuItem>
-              <MenuItem value="בריאות">בריאות</MenuItem>
-              <MenuItem value="חינוך">חינוך</MenuItem>
-              <MenuItem value="חברה ורווחה">חברה ורווחה</MenuItem>
-              <MenuItem value="תעסוקה">תעסוקה</MenuItem>
-              <MenuItem value="סביבה">סביבה</MenuItem>
-              <MenuItem value="אחר">אחר</MenuItem>
-            </Select>
-          </FormControl>
-
-
+          <TextField
+            fullWidth
+            id="whichRolesToday"
+            name="whichRolesToday"
+            variant="outlined"
+            size="small"
+            placeholder="באיזה תפקידים תרצה לקחת חלק?*"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.whichRolesToday}
+            error={formik.touched.whichRolesToday && Boolean(formik.errors.whichRolesToday)}
+            helperText={formik.touched.whichRolesToday && formik.errors.whichRolesToday}
+            InputProps={{
+              sx: { textAlign: 'right' },
+              inputProps: { dir: 'rtl' }, // Set the direction to right-to-left
+            }}
+          />
           <Stack spacing={2}>
             <Button type="submit" variant="contained" color="primary" size="small">
               !מוכן לאתגר
@@ -189,6 +217,4 @@ const RegistrationForm = () => {
   );
 };
 
-
-
-export default RegistrationForm;
+export default RegistrationVolForm;
