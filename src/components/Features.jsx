@@ -17,7 +17,7 @@ function Features() {
         <h2 className="text-9 fw-600 text-center">קול קורא  2024</h2>
         <hr className="heading-separator-line bg-primary opacity-10 mx-auto" />
         <p className="lead text-center mb-5">
-        לייצר אימפקט משמעותי ולהשפיע על החברה הישראלית .        </p>
+        לייצר אימפקט משמעותי ולהשפיע על החברה הישראלית        </p>
         <div className="row">
           <div className="col-lg-4 align-self-center">
             <div className="row justify-content-center">
