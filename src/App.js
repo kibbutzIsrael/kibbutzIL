@@ -12,6 +12,7 @@ import {
 import { Tooltip } from "./components/Tooltip";
 import ClassicHeader from "./components/themes/Headers/ClassicHeader";
 import Features from "./components/Features";
+import FAQs from "./components/FAQs";
 import AppScreenshots from "./components/AppScreenshots";
 import HowItWorks from "./components/HowItWorks";
 import Subscribe from "./components/RegistrationForm";
@@ -109,14 +110,14 @@ function App() {
             {getIntro()}
 
             <AboutUs></AboutUs>
-            <Counter></Counter>
+            {/* <Counter></Counter> */}
             <Features></Features>
             <AppScreenshots></AppScreenshots>
-            <HowItWorks></HowItWorks>
-            <Testimonials></Testimonials>
+            {/* <HowItWorks></HowItWorks> */}
+            {/* <Testimonials></Testimonials> */}
             {/* <Pricing></Pricing> */}
             {/* <GetTheApp></GetTheApp> */}
-            {/* <FAQs></FAQs> */}
+            <FAQs></FAQs>
             <SubscribeMain></SubscribeMain>
             <Subscribe></Subscribe>
             <Contact></Contact>

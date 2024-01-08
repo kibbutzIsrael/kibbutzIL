@@ -138,42 +138,39 @@ const Contact = () => {
               : "bg-light")
           }
         >
-          <section className="section px-4 px-sm-5 mx-lg-4">
-            <h2 className="fw-600 mb-3">Our Headquarter</h2>
-            <hr className="heading-separator-line bg-primary opacity-10" />
-            <p className="lead">
-              For Customer Support and Query, Get in touch with us.
-            </p>
+          <section className="section px-4 px-sm-5 mx-lg-4 text-end ">
+            <h2 className="fw-600 mb-3 ">פרטי קשר</h2>
+            {/* <hr className="heading-separator-line bg-primary opacity-10" /> */}
+            <p className="lead ">
+מוזמנים ליצור קשר               </p>
             <div className="featured-box style-1">
-              <div className="featured-box-icon text-6">
+              {/* <div className="featured-box-icon text-6">
                 {" "}
                 <i className="fas fa-map-marker-alt" />
-              </div>
-              <h3>MXapp Inc.</h3>
+              </div> */}
+              <h3>כתובת</h3>
               <p>
-                4th Floor, Plot No.22, Above Public Park
+              תל אביב
                 <br />
-                145 Murphy Canyon Rd.
+                אבן גבירול
                 <br />
-                Suite 100-18
-                <br />
-                San Diego CA 2028{" "}
+           
               </p>
             </div>
             <div className="featured-box style-1">
-              <div className="featured-box-icon text-6">
+              {/* <div className="featured-box-icon text-6">
                 {" "}
                 <i className="fas fa-phone" />{" "}
-              </div>
-              <h3>Telephone</h3>
-              <p>(+060) 9898980098, (+060) 8898880088</p>
+              </div> */}
+              <h3>מספר טלפון</h3>
+              <p>0507353157</p>
             </div>
             <div className="featured-box style-1">
-              <div className="featured-box-icon text-6">
+              {/* <div className="featured-box-icon text-6">
                 {" "}
                 <i className="fas fa-envelope" />{" "}
-              </div>
-              <h3>Business Inquiries</h3>
+              </div> */}
+              <h3>כתובת האתר</h3>
               <p>info@mxapp.com</p>
             </div>
           </section>
