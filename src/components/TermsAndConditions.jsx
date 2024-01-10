@@ -9,7 +9,7 @@ function TermsAndConditions() {
       >
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">Terms of Use</h5>
+            <h5 className="modal-title">תנאי השימוש</h5>
             <button
               type="button"
               className="btn-close"
@@ -19,83 +19,46 @@ function TermsAndConditions() {
           </div>
           <div className="modal-body p-4">
             <p className="lead">
-              Quidam lisque persius interesset his et, in quot quidam
-              persequeris vim, ad mea essent possim iriure. Lisque persius
-              interesset his et, in quot quidam persequeris vim, ad mea essent
-              possim iriure. lisque persius interesset his et, in quot quidam
-              mea essent possim iriure.
             </p>
-            <h3 className="mb-3 mt-4">Terms of Use</h3>
-            <p>
-              Lisque persius interesset his et, in quot quidam persequeris vim,
-              ad mea essent possim iriure. Lisque persius interesset his et, in
-              quot quidam persequeris vim, ad mea essent possim iriure. lisque
-              persius interesset his et, in quot quidam mea essent possim
-              iriure.
-            </p>
-            <h5 className="text-4">
-              Part I – Information MXapp collects and controls
-            </h5>
-            <p>
-              Persius interesset his et, in quot quidam persequeris vim, ad mea
-              essent possim iriure. Lisque persius interesset his et, in quot
-              quidam persequeris vim, ad mea essent possim iriure.
-            </p>
-            <h5 className="text-4">
-              Part II – Information that MXapp processes on your behalf
-            </h5>
-            <p>
-              Lisque persius interesset his et, in quot quidam persequeris vim,
-              ad mea essent possim iriure. Lisque persius interesset his et, in
-              quot quidam persequeris vim.
-            </p>
-            <h5 className="text-4">Part III – General</h5>
-            <p>
-              Interesset his et, in quot quidam persequeris vim, ad mea essent
-              possim iriure. Lisque persius interesset his et, in quot quidam
-              persequeris vim, ad mea essent possim iriure. lisque persius
-              interesset his et, in quot quidam mea essent possim iriure.
-            </p>
-            <h3 className="mb-3 mt-4">Privacy Policy</h3>
-            <p>
-              Quidam lisque persius interesset his et, in quot quidam
-              persequeris vim, ad mea essent possim iriure. Lisque persius
-              interesset his et, in quot quidam persequeris vim, ad mea essent
-              possim iriure. lisque persius interesset his et, in quot quidam
-              mea essent possim iriure.
-            </p>
-            <ol className="lh-lg">
-              <li>
-                Lisque persius interesset his et, in quot quidam persequeris
-                vim, ad mea essent possim iriure.
+            <h1 className="text-end">תנאי שימוש באתר "KibutzIL"</h1>
+            <p className="text-end">תקנון השימוש באתר הנ"ל נכתב בלשון זכר אך האמור בו מתייחס לנשים וגברים כאחד.</p>
+            <p></p>
+            <ol className="text-end">
+              <li className="text-end">
+                <h4 className="text-end" >קדימון</h4>
+                <p className="text-end" >אתר "KibutzIL" (להלן "האתר") הוא אתר המשתמש כאתר ("המציע שירותים טכנולוגים עבור עמותות") ייצוגי עבור "KibutzIL" </p>
+
+                <p className="text-end">והנך מוזמן לקחת בו חלק בכפוף להסכמתך לתנאי השימוש אשר יפורטו להלן</p>
               </li>
               <li>
-                Quidam lisque persius interesset his et, Lisque persius
-                interesset his et, in quot quidam persequeris vim, ad mea essent
-                possim iriure.
+                <h4 className="text-end">קניין רוחני</h4>
+                <p>האתר כמו גם כל המידע שבו לרבות עיצוב האתר, קוד האתר, קבצי מדיה לרבות גרפיקות, סרטונים, תמונות, טקסטים, קבצים המוצעים להורדה וכל חומר אחר אשר מוצג באתר שייכים במלואם לאתר הנ"ל ומהווים קניין רוחני בלעדי של אתר "שם האתר שלכם" ואין לעשות בהם שימוש ללא אישור כתוב מראש מאתר "שם האתר שלכם".</p>
+                <p>בנוסף אין להפיץ, להעתיק, לשכפל, לפרסם, לחקות או לעבד פיסות קוד, גרפיקות, סרטונים, סימנים מסחריים או כל מדיה ותוכן אחר מבלי שיש ברשותכם אישור כתוב מראש.</p>
               </li>
               <li>
-                In quot quidam persequeris vim, ad mea essent possim iriure.
-                Quidam lisque persius interesset his et.
+                <h4>תוכן האתר</h4>
+                <p>אנו שואפים לספק לכם את המידע המוצג באתר ללא הפרעות אך יתכנו בשל שיקולים טכניים, תקלות צד ג או אחרים, הפרעות בזמינות האתר. ולכן איננו יכולים להתחייב כי האתר יהיה זמין לכם בכל עת ולא יינתן כל פיצוי כספי או אחר בשל הפסקת השירות / הורדת האתר.</p>
+                <p>קישורים לאתר חיצוניים אינם מהווים ערובה כי מדובר באתרים בטוחים, איכותיים או אמינים וביקור בהם נעשה על דעתכם האישית בלבד ונמצאים בתחום האחריות הבלעדי של המשתמש באתר.</p>
+                <p>התכנים המוצעים באתר הינם בבעלותם הבלעדית של "שם האתר שלכם" ואין לעשות בהם שימוש אשר נועד את האמור בתקנון זה (ראה סעיף 3) למעט במקרים בהם צוין אחרת או במקרים בהם צוין כי זכויות היוצרים שייכים לגוף חיצוני. במקרים אלו יש לבדוק מהם תנאי השימוש בקישור המצורף ולפעול על פי המצוין באתר החיצוני לו שייכים התכנים.</p>
               </li>
               <li>
-                Quidam lisque persius interesset his et, Lisque persius
-                interesset his et.
+                <h4>ניהול משתמשים ומבקרים באתר</h4>
+                <p>הנהלת האתר שומרת לעצמה את הזכות לחסום כל משתמש ובין אם על ידי חסימת כתובת הIP  של המחשב שלו, כתובת הMACID  של המחשב שלו או אפילו בהתאם למדינת המוצא ללא צורך לספק תירוץ אשר מקובל על הגולש.</p>
+                <p>צוות האתר / הנהלת האתר יעשה כל שביכולתו להגן על פרטי המשתמשים הרשומים באתר / מנויים הרשומים באתר. במקרים בהם יעלה בידיו של צד שלישי להשיג גישה למידע מוסכם בזאת כי לגולשים, משתמשים וחברים באתר לה תהה כל תביעה, טענה או דרישה כלפי צוות האתר "KibutzIL".</p>
               </li>
               <li>
-                Interesset his et, Lisque persius interesset his et, in quot
-                quidam persequeris vim, ad mea essent possim iriure.
+                <h4>גילוי נאות</h4>
+                <p>באתר זה עשוי לעשות שימוש בקבצי קוקיז (במיוחד עבור משתמשים רשומים ומנויים) ובממשקי סטטיסטיקה פנימיים בכדי לשמור תיעוד סטטיסטי אנונימי של גולשים וניתוח תנועת הגולש/ים, הרגלי גלישה באתר וניתוח קליקים וזמן שהייה.</p>
+                <p>בכל העת ולבד מאשר גולשים המחוברים לאתר המידע הנשמר הוא אנונימי לחלוטין ואין בו את שם הגולש או כל פרט מזהה אחר.</p>
               </li>
               <li>
-                Persius interesset his et, Lisque persius interesset his et, in
-                quot quidam persequeris vim, ad mea essent possim iriure.
-              </li>
-              <li>
-                Quot quidam persequeris vim Quidam lisque persius interesset his
-                et, Lisque persius interesset his et, in quot quidam persequeris
-                vim, ad mea essent possim iriure.
+                <h4>איזור שיפוט</h4>
+                <p>בעת שאתם עושים שימוש באתר ובמקרה בו התגלעה כל מחולקת אתם מסכימים להלן כי האמור לעיל נמצא תחת סמכות השיפוט הבלעדי של החוק הישראלי תוך שימוש במערכת בתי המשפט הישראליים בלבד במחוז תל אביב.</p>
               </li>
             </ol>
+            <p>	            </p>
+            <h3 className="mb-3 mt-4">תנאי שימוש</h3>
+          
           </div>
         </div>
       </div>

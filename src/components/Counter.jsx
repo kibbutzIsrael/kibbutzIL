@@ -19,7 +19,7 @@ function Counter() {
                   <div className="featured-box-icon text-white">
                     <i className="fas fa-users" />
                   </div>
-                  <h4 className="text-11 text-white fw-500">120K</h4>
+                  <h4 className="text-11 text-white fw-500">קהילה</h4>
                   <p className="text-light mb-0">Happy Users</p>
                 </div>
               </div>
@@ -28,7 +28,7 @@ function Counter() {
                   <div className="featured-box-icon text-white">
                     <i className="fas fa-star-half-alt" />
                   </div>
-                  <h4 className="text-11 text-white fw-500">46K</h4>
+                  <h4 className="text-11 text-white fw-500">מוצרים טכנולוגים</h4>
                   <p className="text-light mb-0">Positive Ratings</p>
                 </div>
               </div>

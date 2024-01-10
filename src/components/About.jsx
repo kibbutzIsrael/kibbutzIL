@@ -28,33 +28,39 @@ const AboutUs = () => {
             : " ")
         }
       >
-        <h2 className="text-9 fw-600 text-center">About Our App</h2>
-        <hr className="heading-separator-line bg-primary opacity-10 mx-auto" />
-        <p className="lead text-center mb-4">
-          You can present your app. It is all very easy!
-        </p>
+        {/* <h2 className="text-9 fw-600 text-center">אודות</h2> */}
+        {/* <hr className="heading-separator-line bg-primary opacity-10 mx-auto" /> */}
+        {/* <p className="lead text-center mb-4">
+          
+        </p> */}
         <div className="row">
           <div className="col-lg-6 text-center">
             {" "}
             <img className="img-fluid" src="images/about-app.png" alt="" />{" "}
           </div>
-          <div className="col-lg-6 text-center text-lg-start">
-            <h2 className="text-6 mb-3 mt-4">
-              Inspired Design for App Landing
-            </h2>
+          <div className="col-lg-6 text-center text-lg-end">
+            {/* <h2 className="text-6 mb-3 mt-4">
+            Make the impact!            </h2> */}
             <p>
-              Lisque persius interesset his et, in quot quidam persequeris vim,
-              ad mea essent possim iriure. simply dummy text of the printing and
-              typesetting industry quidam interesset his et.
+      
+אנחנו מנצלים את הכוח הדינמי של האקוסיסטם הטכנולוגי הישראלי כדי לטפל ולהתמודד עם אתגרים חברתיים מבוססי קהילה באמצעות חדשנות והחלטיות
             </p>
             <p>
-              Lorem Ipsum has been the industry's standard dummy text when an
-              unknown printer took a galley of type and scrambled it to make a
-              type specimen book.
+            אנחנו נשמח להתגייס ולתרום מהיכולות הטכנולוגיות כדי לסייע לטובת צרכים ויוזמות הצפים מהשטח במצב המורכב בו אנו נמצאים  .
+
+
+
             </p>
+
+            <p>
+
+
+
+            </p>
+
             <div className="d-inline-flex pt-2">
               {" "}
-              <a
+              {/* <a
                 className="me-4"
                 href={appleAppStoreLink}
                 target="_blank"
@@ -72,7 +78,7 @@ const AboutUs = () => {
                   src="images/google-play-store.png"
                   alt=""
                 />
-              </a>{" "}
+              </a>{" "} */}
             </div>
           </div>
         </div>

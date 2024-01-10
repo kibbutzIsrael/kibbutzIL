@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 
+ 
 function SubscribeForm({ subscribe, status, message }) {
   const emailRef = useRef();
   useEffect(() => {
