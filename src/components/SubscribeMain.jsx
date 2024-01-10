@@ -235,6 +235,7 @@ const RegistrationVolForm = () => {
             <Button type="submit" variant="contained" color="secondary" size="small">
               !לחץ כאן
             </Button>
+            <hr></hr>
           </Stack>
         </Stack>
       </form>

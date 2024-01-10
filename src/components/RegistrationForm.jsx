@@ -12,7 +12,7 @@ import InputLabel from '@mui/material/InputLabel';  // Add this line
 import axios from 'axios';
 
 
-
+// טופס ארגונים
 const RegistrationForm = () => {
   // Schema and validation setup with Yup
   const validationSchema = Yup.object({
@@ -50,6 +50,7 @@ const RegistrationForm = () => {
     },
   });
 
+  <hr></hr>
   return (
     <div id="subscribe" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       {/* Centering the form vertically and horizontally */}
@@ -67,8 +68,18 @@ const RegistrationForm = () => {
             margin: 'auto',
           }}
         >
-          !הרשמה מוקדמת לקול קורא
+          
+          !טופס הרשמה לארגונים
+          
         </Typography>
+
+        <Typography variant="body1" component="div" sx={{ fontSize: '14px', textAlign: 'center' }}>
+          !היי שלום לכל הארגונים המצטרפים
+          <br />
+          .במסגרת טופס ההרשמה, תצטרכו למלא פרטים שנועדו לנו על מנת שנתחיל בדרך משותפת יחד <br></br>  
+          </Typography>
+
+
         <br />
 
 
@@ -151,8 +162,8 @@ const RegistrationForm = () => {
           />
 
           <FormControl fullWidth variant="outlined">
-            <InputLabel htmlFor="BodyName" sx={{ textAlign: 'right' }} dir="rtl">
-              {/* התחום החברתי של הגוף */}
+            <InputLabel htmlFor="BodyName" sx={{ textAlign: 'right' }} dir="rtl" className="text-end">
+              התחום החברתי של הגוף
             </InputLabel>
             <Select
               labelId="BodyName-label"
@@ -164,6 +175,7 @@ const RegistrationForm = () => {
               error={formik.touched.BodyName && Boolean(formik.errors.BodyName)}
               sx={{ textAlign: 'right' }}
               inputProps={{ dir: 'rtl' }}
+              className="text-end" // Add any additional classes needed for styling
             >
               <MenuItem value="" disabled>
                 בחר/י את התחום החברתי של הגוף
@@ -177,10 +189,9 @@ const RegistrationForm = () => {
             </Select>
           </FormControl>
 
-
           <Stack spacing={2}>
-            <Button type="submit" variant="contained" color="primary" size="small">
-              !מוכן לאתגר
+            <Button type="submit" variant="contained" color="secondary" size="small">
+              !בואו נצא לדרך
             </Button>
           </Stack>
         </Stack>
