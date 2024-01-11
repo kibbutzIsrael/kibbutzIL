@@ -232,9 +232,17 @@ const RegistrationVolForm = () => {
           </div>
 
           <Stack spacing={1}>
-            <Button type="submit" variant="contained" color="secondary" size="small">
-              !לחץ כאן
-            </Button>
+          <Button
+    type="submit"
+    variant="contained"
+    style={{
+        backgroundColor: '#5059B3',  // צבע הרקע של הכפתור
+        color: '#ffffff',  // צבע הטקסט בכפתור
+    }}
+    size="small"
+>
+    !בואו נצא לדרך
+</Button>
             <hr></hr>
           </Stack>
         </Stack>
