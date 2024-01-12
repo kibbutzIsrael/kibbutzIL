@@ -9,7 +9,7 @@ const Footer = () => {
       className={
         "section  " +
         (appliedConfig.appliedHeader === HeaderConfig.SideHeaderDark ||
-          appliedConfig.appliedHeader === HeaderConfig.SideHeaderLight
+        appliedConfig.appliedHeader === HeaderConfig.SideHeaderLight
           ? "px-lg-4 "
           : "bg-dark footer-text-light ")
       }
@@ -18,18 +18,13 @@ const Footer = () => {
         <div className="row">
           <div className="col-lg-4 align-self-center text-center text-lg-start">
             <p className="mb-0">
-              © 2024{" "}
               <a
                 href="/"
                 className="link-underline link-underline-opacity-0-hover"
               >
-                All Rights Reserved,
-
-                KibutzIL Devlopment 
-
+                KibutzIL האתר פותח על ידי חברי קהילת (paz mizrhi)
               </a>
             </p>
-            
           </div>
           <div className="col-lg-4 align-self-center justify-content-center justify-content-lg-start">
             <ul className="social-icons social-icons-lg social-icons-muted justify-content-center py-3 py-lg-0">
