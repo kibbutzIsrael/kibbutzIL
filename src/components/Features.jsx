@@ -60,7 +60,7 @@ function Features() {
           <div className="col-lg-4 text-center mb-4 mb-xl-0">
             <img
               alt=""
-              src="images/app-showcase-feature.png"
+              src="images/app-showcase-feature3.png"
               className="img-fluid"
             />
           </div>

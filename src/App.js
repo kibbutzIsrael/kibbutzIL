@@ -110,9 +110,8 @@ function App() {
             {getIntro()}
 
             <AboutUs></AboutUs>
-            {/* <Counter></Counter> */}
             <Features></Features>
-            <AppScreenshots></AppScreenshots>
+            {/* <AppScreenshots></AppScreenshots> */}
             {/* <HowItWorks></HowItWorks> */}
             {/* <Testimonials></Testimonials> */}
             {/* <Pricing></Pricing> */}
@@ -120,6 +119,7 @@ function App() {
             <FAQs></FAQs>
             <SubscribeMain></SubscribeMain>
             <Subscribe></Subscribe>
+            <Counter></Counter>
             <Contact></Contact>
           </div>
           <Footer handleNavClick={handleNavClick}></Footer>
