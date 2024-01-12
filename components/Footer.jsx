@@ -23,12 +23,13 @@ const Footer = () => {
                 href="/"
                 className="link-underline link-underline-opacity-0-hover"
               >
-                . All Rights Reserved.
+                All Rights Reserved,
 
-                KibutzIL Devlopment
+                KibutzIL Devlopment 
 
               </a>
             </p>
+            
           </div>
           <div className="col-lg-4 align-self-center justify-content-center justify-content-lg-start">
             <ul className="social-icons social-icons-lg social-icons-muted justify-content-center py-3 py-lg-0">
@@ -92,7 +93,7 @@ const Footer = () => {
                   data-bs-target="#terms"
                   href="/"
                 >
-                  Terms of Use
+                  תנאי שימוש
                 </a>
               </li>
               <li className="nav-item">
@@ -103,7 +104,7 @@ const Footer = () => {
                   data-bs-target="#privacy"
                   href="/"
                 >
-                  Privacy Policy
+                  מדיניות פרטיות
                 </a>
               </li>
             </ul>

@@ -19,35 +19,46 @@ function Counter() {
                   <div className="featured-box-icon text-white">
                     <i className="fas fa-users" />
                   </div>
-                  <h4 className="text-11 text-white fw-500">קהילה</h4>
-                  <p className="text-light mb-0">Happy Users</p>
+                  <h4 className="text-11 text-white fw-500">  </h4>
+                  <p className="text-light mb-0">קהילה חזקה, תורמים ולומדים אחד מהשני</p>
+
+
                 </div>
               </div>
               <div className="col-6 col-md-3">
                 <div className="featured-box text-center">
                   <div className="featured-box-icon text-white">
-                    <i className="fas fa-star-half-alt" />
+                    <i className="fas fa-user-astronaut" />
+                    {/* <FontAwesomeIcon icon="fa-solid fa-user-astronaut" /> */}
+
                   </div>
-                  <h4 className="text-11 text-white fw-500">מוצרים טכנולוגים</h4>
-                  <p className="text-light mb-0">Positive Ratings</p>
+                  <h4 className="text-11 text-white fw-500"> </h4>
+                  {/* <p className="text-light mb-0">Positive Ratings</p> */}
+                  <p className="text-light mb-0">מוצרים מתקדמים טכנולוגית</p>
+
                 </div>
               </div>
               <div className="col-6 col-md-3">
                 <div className="featured-box text-center">
                   <div className="featured-box-icon text-white">
-                    <i className="fas fa-download" />
+                    <i className="fas fa-heart" />
                   </div>
-                  <h4 className="text-11 text-white fw-500">125K</h4>
-                  <p className="text-light mb-0">Total Download</p>
+                  {/* <h4 className="text-11 text-white fw-500">שיתופי פעולה </h4> */}
+                  <p className="text-light mb-0">שיתופי פעולה רחבים עם ארגונים ואנשים מוכשרים</p>
+
                 </div>
               </div>
               <div className="col-6 col-md-3">
                 <div className="featured-box text-center">
                   <div className="featured-box-icon text-white">
-                    <i className="fas fa-gem" />
+                    <i className="fas fa-comment" />
+                    {/* <FontAwesomeIcon icon="fa-regular fa-comment" /> */}
+                    {/* <FontAwesomeIcon icon="fa-solid fa-thumbtack" /> */}
+
+
                   </div>
-                  <h4 className="text-11 text-white fw-500">58K</h4>
-                  <p className="text-light mb-0">Premium Users</p>
+                  {/* <h4 className="text-11 text-white fw-500">כבוד לשיח</h4> */}
+                  <p className="text-light mb-0">מקדמים שיח מכבד ופתוח</p>
                 </div>
               </div>
             </div>

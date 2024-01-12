@@ -94,7 +94,7 @@ const Contact = () => {
           <div className="section px-4 px-sm-5 mx-lg-5">
             <h1 className="fw-600 text-center mb-3">צור קשר</h1>
             <hr className="heading-separator-line bg-primary opacity-10 mx-auto" />
-            <p className="lead text-center mb-5">.זמינים עבורכם לכל שאלה </p>
+            <p className="lead text-center mb-5">.אנחנו זמינים עבורכם לכל שאלה </p>
             <form id="contact-form" ref={form} onSubmit={formik.handleSubmit}>
               <div className="mb-3">
                 <input
@@ -200,7 +200,7 @@ const Contact = () => {
               </p>
             </div>
             <div className="featured-box style-1">
-              <h3>מספר טלפון</h3>
+              <h3>: מספר טלפון</h3>
               <p>
                 <a href="050-735-3157" onClick={handlePhoneNumberClick}>
                   050-735-3157
