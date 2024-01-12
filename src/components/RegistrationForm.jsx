@@ -13,6 +13,7 @@ import axios from 'axios';
 
 
 // טופס ארגונים
+
 const RegistrationForm = () => {
   // Schema and validation setup with Yup
   const validationSchema = Yup.object({
@@ -30,6 +31,7 @@ const RegistrationForm = () => {
       phoneNumber: '',
       instituteName: '',
       BodyName: '',
+      linkedin: '',  // Add this line
     },
     validationSchema: validationSchema,
 

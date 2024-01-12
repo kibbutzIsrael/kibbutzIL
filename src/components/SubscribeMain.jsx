@@ -12,6 +12,8 @@ import axios from 'axios';
 import InputLabel from '@mui/material/InputLabel';
 import { useDropzone } from 'react-dropzone';
 
+ /// טופס מתנדבים
+ 
 const RegistrationVolForm = () => {
   const validationSchema = Yup.object({
     fullName: Yup.string().required('שם מלא הוא שדה חובה'),
@@ -21,11 +23,15 @@ const RegistrationVolForm = () => {
     rolesUntilToday: Yup.string().required('יש לציין את התפקידים שבהם השתתפת עד כה'),
     whichRolesToday: Yup.string().required('יש לציין את התפקידים שברצונך להשתתף בהם'),
     ExpYear: Yup.string().required('יש לציין את מספר שנות הניסיון'),
+    linkedin: Yup.string().matches(
+      /^(https?:\/\/)?(www\.)?linkedin\.com\/.*$/,
+      'Invalid LinkedIn URL'
+    ).optional(),
   }).test('rtl-concat', ' ', function (value) {
     // Add right-to-left mark to the error message
     return this.createError({ message: '\u200F' });
   });
-  
+
   const formik = useFormik({
     initialValues: {
       fullName: '',
@@ -33,6 +39,7 @@ const RegistrationVolForm = () => {
       phoneNumber: '',
       BodyName: '',
       resume: null, // New field for resume file
+      linkedin: '',  // Add this line
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
@@ -220,7 +227,26 @@ const RegistrationVolForm = () => {
             error={formik.touched.ExpYear && Boolean(formik.errors.ExpYear)}
             helperText={formik.touched.ExpYear && formik.errors.ExpYear}
             InputProps={{ sx: { textAlign: 'right', fontSize: '12px' }, inputProps: { dir: 'rtl' } }}
+
           />
+
+          <TextField
+            fullWidth
+            id="linkedin"
+            name="linkedin"
+            variant="outlined"
+            placeholder="קישור לפרופיל ב-LinkedIn"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.linkedin}
+            error={formik.touched.linkedin && Boolean(formik.errors.linkedin)}
+            helperText={formik.touched.linkedin && formik.errors.linkedin}
+            InputProps={{
+              sx: { textAlign: 'right' },
+              inputProps: { dir: 'rtl' },
+            }}
+          />
+
 
           {/* File upload (resume) */}
           <div {...getRootProps()} style={{ margin: '10px 0', border: '2px dashed #eeeeee', borderRadius: '4px', padding: '20px', textAlign: 'right', fontSize: '12px' }}>
@@ -232,17 +258,17 @@ const RegistrationVolForm = () => {
           </div>
 
           <Stack spacing={1}>
-          <Button
-    type="submit"
-    variant="contained"
-    style={{
-        backgroundColor: '#5059B3',  // צבע הרקע של הכפתור
-        color: '#ffffff',  // צבע הטקסט בכפתור
-    }}
-    size="small"
->
-    !בואו נצא לדרך
-</Button>
+            <Button
+              type="submit"
+              variant="contained"
+              style={{
+                backgroundColor: '#5059B3',  // צבע הרקע של הכפתור
+                color: '#ffffff',  // צבע הטקסט בכפתור
+              }}
+              size="small"
+            >
+              !בואו נצא לדרך
+            </Button>
             <hr></hr>
           </Stack>
         </Stack>

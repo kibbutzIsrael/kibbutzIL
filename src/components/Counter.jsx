@@ -22,7 +22,7 @@ function Counter() {
                   <h4 className="text-11 text-white fw-500">  </h4>
                   <p className="text-light mb-0">קהילה חזקה, תורמים ולומדים אחד מהשני</p>
 
-                 
+
                 </div>
               </div>
               <div className="col-6 col-md-3">
@@ -41,10 +41,10 @@ function Counter() {
               <div className="col-6 col-md-3">
                 <div className="featured-box text-center">
                   <div className="featured-box-icon text-white">
-                  <i className="fas fa-user-astronaut" />                  
+                    <i className="fas fa-heart" />
                   </div>
                   {/* <h4 className="text-11 text-white fw-500">שיתופי פעולה </h4> */}
-                              <p className="text-light mb-0">שיתופי פעולה רחבים עם ארגונים ואנשים מוכשרים</p>
+                  <p className="text-light mb-0">שיתופי פעולה רחבים עם ארגונים ואנשים מוכשרים</p>
 
                 </div>
               </div>
