@@ -13,6 +13,7 @@ import axios from 'axios';
 
 
 // טופס ארגונים
+
 const RegistrationForm = () => {
   // Schema and validation setup with Yup
   const validationSchema = Yup.object({
@@ -30,6 +31,7 @@ const RegistrationForm = () => {
       phoneNumber: '',
       instituteName: '',
       BodyName: '',
+      linkedin: '',  // Add this line
     },
     validationSchema: validationSchema,
 
@@ -190,9 +192,17 @@ const RegistrationForm = () => {
           </FormControl>
 
           <Stack spacing={2}>
-            <Button type="submit" variant="contained" color="secondary" size="small">
-              !בואו נצא לדרך
-            </Button>
+          <Button
+    type="submit"
+    variant="contained"
+    style={{
+        backgroundColor: '#5059B3',  // צבע הרקע של הכפתור
+        color: '#ffffff',  // צבע הטקסט בכפתור
+    }}
+    size="small"
+>
+    !בואו נצא לדרך
+</Button>
           </Stack>
         </Stack>
       </form>
