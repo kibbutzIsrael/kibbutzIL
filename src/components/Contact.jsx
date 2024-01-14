@@ -84,7 +84,7 @@ const Contact = () => {
       id="contact"
       className={
         appliedConfig.appliedHeader === HeaderConfig.SideHeaderDark ||
-        appliedConfig.appliedHeader === HeaderConfig.SideHeaderLight
+          appliedConfig.appliedHeader === HeaderConfig.SideHeaderLight
           ? "bg-light"
           : ""
       }
@@ -101,11 +101,10 @@ const Contact = () => {
                   id="name"
                   name="user_name"
                   type="text"
-                  className={`form-control border-2 text-end ${
-                    formik.touched.user_name && formik.errors.user_name
+                  className={`form-control border-2 text-end ${formik.touched.user_name && formik.errors.user_name
                       ? "is-invalid"
                       : ""
-                  }`}
+                    }`}
                   {...formik.getFieldProps("user_name")}
                   placeholder="שם מלא"
                 />
@@ -120,11 +119,10 @@ const Contact = () => {
                   id="email"
                   name="user_email"
                   type="email"
-                  className={`form-control border-2 text-end ${
-                    formik.touched.user_email && formik.errors.user_email
+                  className={`form-control border-2 text-end ${formik.touched.user_email && formik.errors.user_email
                       ? "is-invalid"
                       : ""
-                  }`}
+                    }`}
                   {...formik.getFieldProps("user_email")}
                   placeholder="מייל"
                 />
@@ -138,11 +136,10 @@ const Contact = () => {
                 <textarea
                   id="form-message"
                   name="message"
-                  className={`form-control border-2 text-end ${
-                    formik.touched.message && formik.errors.message
+                  className={`form-control border-2 text-end ${formik.touched.message && formik.errors.message
                       ? "is-invalid"
                       : ""
-                  }`}
+                    }`}
                   rows={3}
                   {...formik.getFieldProps("message")}
                   placeholder=".....שלח הודעה"
@@ -209,7 +206,7 @@ const Contact = () => {
             </div>
             <div className="featured-box style-1">
               <h3>כתובת האתר</h3>
-              <p>info@mxapp.com</p>
+              <a href="https://kibbutzil-homepage.web.app/">https://kibbutzil-homepage.web.app/</a>
             </div>
             <div className="featured-box style-1">
               <div className="featured-box style-1">
