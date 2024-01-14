@@ -11,8 +11,29 @@ import Typography from "@mui/material/Typography";
 import axios from "axios";
 import InputLabel from "@mui/material/InputLabel";
 import { useDropzone } from "react-dropzone";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import "firebase/compat/firestore";
+import "firebase/compat/storage";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyD2lLiDun1SBFVNp9LYTzVQpXvSRgnINz4",
+  authDomain: "kibbutzil-homepage.firebaseapp.com",
+  projectId: "kibbutzil-homepage",
+  storageBucket: "kibbutzil-homepage.appspot.com",
+  messagingSenderId: "632741138209",
+  appId: "1:632741138209:web:111fdeadc5bf8bd541f860",
+  measurementId: "G-2R1VLPLDHK",
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const storage = getStorage(app); // Initialize Firebase Storage
 
 /// טופס מתנדבים
+
 
 const RegistrationVolForm = () => {
   const validationSchema = Yup.object({
@@ -49,6 +70,17 @@ const RegistrationVolForm = () => {
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       try {
+        // Upload resume to Firebase Storage
+        const storageRef = ref(storage, `resumes/${values.resume.name}`);
+        await uploadBytes(storageRef, values.resume);
+
+        // Get the download URL of the uploaded file
+        const downloadURL = await getDownloadURL(storageRef);
+
+        // Include the download URL in your form data or save it in the database
+        console.log("Resume Download URL:", downloadURL);
+
+        // Continue with the form submission
         const formData = new FormData();
         formData.append("fullName", values.fullName);
         formData.append("email", values.email);
@@ -58,19 +90,20 @@ const RegistrationVolForm = () => {
         formData.append("rolesUntilToday", values.rolesUntilToday);
         formData.append("whichRolesToday", values.whichRolesToday);
         formData.append("ExpYear", values.ExpYear);
-        formData.append("resume", values.resume);
+        formData.append("resume", downloadURL); // Use the download URL instead of the file object
 
+        // Continue with the axios post request
         const response = await axios.post("endpoint backend kibutz", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
         });
-
         console.log("Server Response:", response.data);
         formik.resetForm();
       } catch (error) {
         console.error("Error submitting form:", error);
       }
+
     },
   });
 
