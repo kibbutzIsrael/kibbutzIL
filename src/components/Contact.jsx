@@ -1,8 +1,9 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
-import { useFormik } from "formik";  // Import Formik
+import { useFormik } from "formik"; // Import Formik
 import * as Yup from "yup";
+import axios from "axios";
 
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -17,19 +18,57 @@ const Contact = () => {
 
   const formik = useFormik({
     initialValues: {
-      user_name: "",
-      user_email: "",
-      message: "",
+      contactName: "",
+      contactEmail: "",
+      contactMessageBody: "",
     },
     validationSchema: Yup.object({
-      user_name: Yup.string().required("שם מלא הוא שדה חובה"),
-      user_email: Yup.string()
+      contactName: Yup.string().required("שם מלא הוא שדה חובה"),
+      contactEmail: Yup.string()
         .email("כתובת מייל לא חוקית")
+        .min(2, "Minimum length is 2 characters")
         .required("כתובת מייל היא שדה חובה"),
-      message: Yup.string().required("הודעה היא שדה חובה"),
+      contactMessageBody: Yup.string()
+        .required("הודעה היא שדה חובה")
+        .min(2, "Minimum length is 2 characters"),
     }),
-    onSubmit: (values, { setSubmitting, resetForm }) => {
-      sendEmail(values, setSubmitting, resetForm);
+    onSubmit: async (values, { resetForm }) => {
+      console.log(values);
+
+      // contacts-forms
+
+      try {
+        const response = await axios.post(
+          "https://kibbutzil.online/contacts-forms",
+          values
+        );
+        console.log("Server Response:2", response.data);
+        formik.resetForm();
+
+        toast.success("הפרטים נשלחו בהצלחה", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        resetForm({ values: "" });
+      } catch (error) {
+        console.error("Error submitting form:", error.response);
+        toast.error("Something went wrong!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     },
   });
 
@@ -49,7 +88,7 @@ const Contact = () => {
       .then(
         (result) => {
           resetForm();
-          toast.success("Message sent successfully!", {
+          toast.success("contactMessageBody sent successfully!", {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -84,7 +123,7 @@ const Contact = () => {
       id="contact"
       className={
         appliedConfig.appliedHeader === HeaderConfig.SideHeaderDark ||
-          appliedConfig.appliedHeader === HeaderConfig.SideHeaderLight
+        appliedConfig.appliedHeader === HeaderConfig.SideHeaderLight
           ? "bg-light"
           : ""
       }
@@ -94,61 +133,68 @@ const Contact = () => {
           <div className="section px-4 px-sm-5 mx-lg-5">
             <h1 className="fw-600 text-center mb-3">צור קשר</h1>
             <hr className="heading-separator-line bg-primary opacity-10 mx-auto" />
-            <p className="lead text-center mb-5">.אנחנו זמינים עבורכם לכל שאלה </p>
+            <p className="lead text-center mb-5">
+              .אנחנו זמינים עבורכם לכל שאלה{" "}
+            </p>
             <form id="contact-form" ref={form} onSubmit={formik.handleSubmit}>
               <div className="mb-3">
                 <input
                   id="name"
-                  name="user_name"
+                  name="contactName"
                   type="text"
-                  className={`form-control border-2 text-end ${formik.touched.user_name && formik.errors.user_name
+                  className={`form-control border-2 text-end ${
+                    formik.touched.contactName && formik.errors.contactName
                       ? "is-invalid"
                       : ""
-                    }`}
-                  {...formik.getFieldProps("user_name")}
+                  }`}
+                  {...formik.getFieldProps("contactName")}
                   placeholder="שם מלא"
                 />
-                {formik.touched.user_name && formik.errors.user_name && (
+                {formik.touched.contactName && formik.errors.contactName && (
                   <div className="invalid-feedback">
-                    {formik.errors.user_name}
+                    {formik.errors.contactName}
                   </div>
                 )}
               </div>
               <div className="mb-3">
                 <input
                   id="email"
-                  name="user_email"
+                  name="contactEmail"
                   type="email"
-                  className={`form-control border-2 text-end ${formik.touched.user_email && formik.errors.user_email
+                  className={`form-control border-2 text-end ${
+                    formik.touched.contactEmail && formik.errors.contactEmail
                       ? "is-invalid"
                       : ""
-                    }`}
-                  {...formik.getFieldProps("user_email")}
+                  }`}
+                  {...formik.getFieldProps("contactEmail")}
                   placeholder="מייל"
                 />
-                {formik.touched.user_email && formik.errors.user_email && (
+                {formik.touched.contactEmail && formik.errors.contactEmail && (
                   <div className="invalid-feedback">
-                    {formik.errors.user_email}
+                    {formik.errors.contactEmail}
                   </div>
                 )}
               </div>
               <div className="mb-3">
                 <textarea
-                  id="form-message"
-                  name="message"
-                  className={`form-control border-2 text-end ${formik.touched.message && formik.errors.message
+                  id="form-contactMessageBody"
+                  name="contactMessageBody"
+                  className={`form-control border-2 text-end ${
+                    formik.touched.contactMessageBody &&
+                    formik.errors.contactMessageBody
                       ? "is-invalid"
                       : ""
-                    }`}
+                  }`}
                   rows={3}
-                  {...formik.getFieldProps("message")}
+                  {...formik.getFieldProps("contactMessageBody")}
                   placeholder=".....שלח הודעה"
                 />
-                {formik.touched.message && formik.errors.message && (
-                  <div className="invalid-feedback">
-                    {formik.errors.message}
-                  </div>
-                )}
+                {formik.touched.contactMessageBody &&
+                  formik.errors.contactMessageBody && (
+                    <div className="invalid-feedback">
+                      {formik.errors.contactMessageBody}
+                    </div>
+                  )}
               </div>
               <p className="text-center mt-4 mb-0">
                 <button
@@ -177,7 +223,7 @@ const Contact = () => {
           className={
             "col-md-6 col-lg-5  " +
             (appliedConfig.appliedHeader === HeaderConfig.SideHeaderDark ||
-              appliedConfig.appliedHeader === HeaderConfig.SideHeaderLight
+            appliedConfig.appliedHeader === HeaderConfig.SideHeaderLight
               ? "bg-white"
               : "bg-light")
           }
@@ -206,7 +252,9 @@ const Contact = () => {
             </div>
             <div className="featured-box style-1">
               <h3>כתובת האתר</h3>
-              <a href="https://kibbutzil-homepage.web.app/">https://kibbutzil-homepage.web.app/</a>
+              <a href="https://kibbutzil-homepage.web.app/">
+                https://kibbutzil-homepage.web.app/
+              </a>
             </div>
             <div className="featured-box style-1">
               <div className="featured-box style-1">

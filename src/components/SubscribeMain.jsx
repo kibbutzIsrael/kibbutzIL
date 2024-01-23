@@ -16,7 +16,8 @@ import { getAnalytics } from "firebase/analytics";
 import "firebase/compat/firestore";
 import "firebase/compat/storage";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyD2lLiDun1SBFVNp9LYTzVQpXvSRgnINz4",
@@ -34,22 +35,25 @@ const storage = getStorage(app); // Initialize Firebase Storage
 
 /// טופס מתנדבים
 
-
 const RegistrationVolForm = () => {
   const validationSchema = Yup.object({
-    fullName: Yup.string().required("שם מלא הוא שדה חובה"),
+    fullName: Yup.string()
+      .required("שם מלא הוא שדה חובה")
+      .min(2, "Minimum length is 2 characters"),
     email: Yup.string()
       .email('כתובת דוא"ל אינה חוקית')
       .required('כתובת דוא"ל היא שדה חובה'),
-    phoneNumber: Yup.string().required("מספר הטלפון הוא שדה חובה"),
+    phoneNumber: Yup.string()
+      .required("מספר הטלפון הוא שדה חובה")
+      .matches(/^0\d{8,9}$/, "מספר הטלפון אינו תקין"),
     gender: Yup.string().required("בחירת מגדר היא שדה חובה"),
-    rolesUntilToday: Yup.string().required(
+    positionUntilNow: Yup.string().required(
       "יש לציין את התפקידים שבהם השתתפת עד כה"
     ),
-    whichRolesToday: Yup.string().required(
+    fecerPosition: Yup.string().required(
       "יש לציין את התפקידים שברצונך להשתתף בהם"
     ),
-    ExpYear: Yup.string().required("יש לציין את מספר שנות הניסיון"),
+    yearExperience: Yup.string().required("יש לציין את מספר שנות הניסיון"),
     linkedin: Yup.string()
       .matches(/^(https?:\/\/)?(www\.)?linkedin\.com\/.*$/, "כתובת לא תקינה")
       .optional(),
@@ -63,53 +67,77 @@ const RegistrationVolForm = () => {
       fullName: "",
       email: "",
       phoneNumber: "",
+      gender: "",
+      positionUntilNow: "",
+      fecerPosition: "",
+      yearExperience: "",
+      CVfile: null,
       BodyName: "",
-      resume: null, // New field for resume file
-      linkedin: "", // Add this line
+      location: "",
+      CVfile: null,
+      linkedin: "",
     },
     validationSchema: validationSchema,
-    onSubmit: async (values) => {
+    onSubmit: async (values, { resetForm }) => {
+      console.log("values", values);
+
       try {
-        // Upload resume to Firebase Storage
-        const storageRef = ref(storage, `resumes/${values.resume.name}`);
-        await uploadBytes(storageRef, values.resume);
-
-        // Get the download URL of the uploaded file
-        const downloadURL = await getDownloadURL(storageRef);
-
-        // Include the download URL in your form data or save it in the database
-        console.log("Resume Download URL:", downloadURL);
-
-        // Continue with the form submission
-        const formData = new FormData();
-        formData.append("fullName", values.fullName);
-        formData.append("email", values.email);
-        formData.append("phoneNumber", values.phoneNumber);
-        formData.append("BodyName", values.BodyName);
-        formData.append("gender", values.gender);
-        formData.append("rolesUntilToday", values.rolesUntilToday);
-        formData.append("whichRolesToday", values.whichRolesToday);
-        formData.append("ExpYear", values.ExpYear);
-        formData.append("resume", downloadURL); // Use the download URL instead of the file object
-
-        // Continue with the axios post request
-        const response = await axios.post("endpoint backend kibutz", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+        const response = await axios.post(
+          "https://kibbutzil.online/volunteers-forms",
+          values,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        toast.success("הפרטים נשלחו בהצלחה", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
         });
-        console.log("Server Response:", response.data);
-        formik.resetForm();
+        resetForm({ values: "" });
       } catch (error) {
-        console.error("Error submitting form:", error);
-      }
+        console.error("Error submitting form:", error.response.data.message);
 
+        if (
+          error.response.data.message ===
+          "Volunteer with this email already exists"
+        ) {
+          toast.error("המייל כבר רשום במערכת  ", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        } else {
+          toast.error("Something went wrong!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+      }
     },
   });
 
   const onDrop = useCallback(
     (acceptedFiles) => {
-      formik.setFieldValue("resume", acceptedFiles[0]);
+      formik.setFieldValue("CVfile", acceptedFiles[0]);
     },
     [formik]
   );
@@ -206,18 +234,16 @@ const RegistrationVolForm = () => {
           />
           <TextField
             fullWidth
-            id="placeliving"
-            name="placeliving"
+            id="location"
+            name="location"
             variant="outlined"
             size="small"
             placeholder="מקום מגורים"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.placeliving}
-            error={
-              formik.touched.placeliving && Boolean(formik.errors.placeliving)
-            }
-            helperText={formik.touched.placeliving && formik.errors.placeliving}
+            value={formik.values.location}
+            error={formik.touched.location && Boolean(formik.errors.location)}
+            helperText={formik.touched.location && formik.errors.location}
             InputProps={{
               sx: { textAlign: "right", fontSize: "12px" },
               inputProps: { dir: "rtl" },
@@ -276,20 +302,20 @@ const RegistrationVolForm = () => {
           </FormControl>
           <TextField
             fullWidth
-            id="rolesUntilToday"
-            name="rolesUntilToday"
+            id="positionUntilNow"
+            name="positionUntilNow"
             variant="outlined"
             size="small"
             placeholder="באיזה תפקידים לקחת חלק עד היום?*"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.rolesUntilToday}
+            value={formik.values.positionUntilNow}
             error={
-              formik.touched.rolesUntilToday &&
-              Boolean(formik.errors.rolesUntilToday)
+              formik.touched.positionUntilNow &&
+              Boolean(formik.errors.positionUntilNow)
             }
             helperText={
-              formik.touched.rolesUntilToday && formik.errors.rolesUntilToday
+              formik.touched.positionUntilNow && formik.errors.positionUntilNow
             }
             InputProps={{
               sx: { textAlign: "right", fontSize: "12px" },
@@ -298,20 +324,20 @@ const RegistrationVolForm = () => {
           />
           <TextField
             fullWidth
-            id="whichRolesToday"
-            name="whichRolesToday"
+            id="fecerPosition"
+            name="fecerPosition"
             variant="outlined"
             size="small"
             placeholder="באיזה תפקיד תרצה לקחת חלק?*"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.whichRolesToday}
+            value={formik.values.fecerPosition}
             error={
-              formik.touched.whichRolesToday &&
-              Boolean(formik.errors.whichRolesToday)
+              formik.touched.fecerPosition &&
+              Boolean(formik.errors.fecerPosition)
             }
             helperText={
-              formik.touched.whichRolesToday && formik.errors.whichRolesToday
+              formik.touched.fecerPosition && formik.errors.fecerPosition
             }
             InputProps={{
               sx: { textAlign: "right", fontSize: "12px" },
@@ -320,16 +346,21 @@ const RegistrationVolForm = () => {
           />
           <TextField
             fullWidth
-            id="ExpYear"
-            name="ExpYear"
+            id="yearExperience"
+            name="yearExperience"
             variant="outlined"
             size="small"
             placeholder="כמה שנות ניסיון יש לך בתחום התפקיד?*"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.ExpYear}
-            error={formik.touched.ExpYear && Boolean(formik.errors.ExpYear)}
-            helperText={formik.touched.ExpYear && formik.errors.ExpYear}
+            value={formik.values.yearExperience}
+            error={
+              formik.touched.yearExperience &&
+              Boolean(formik.errors.yearExperience)
+            }
+            helperText={
+              formik.touched.yearExperience && formik.errors.yearExperience
+            }
             InputProps={{
               sx: { textAlign: "right", fontSize: "12px" },
               inputProps: { dir: "rtl" },
@@ -354,7 +385,7 @@ const RegistrationVolForm = () => {
             }}
           />
 
-          {/* File upload (resume) */}
+          {/* File upload (CVfile) */}
           <div
             {...getRootProps()}
             style={{
@@ -368,7 +399,7 @@ const RegistrationVolForm = () => {
           >
             <input {...getInputProps()} />
             <p> PDF File שלח קורות חיים </p>
-            {formik.values.resume && <p>קובץ: {formik.values.resume.name}</p>}
+            {formik.values.CVfile && <p>קובץ: {formik.values.CVfile.name}</p>}
           </div>
 
           <Stack spacing={1}>

@@ -1,182 +1,249 @@
-import React from 'react';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import InputLabel from '@mui/material/InputLabel';  // Add this line
-import axios from 'axios';
-
-
-// טופס ארגונים
+import React from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import InputLabel from "@mui/material/InputLabel";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const RegistrationForm = () => {
-  // Schema and validation setup with Yup
   const validationSchema = Yup.object({
-    fullName: Yup.string().required('Full name is a required field'),
-    email: Yup.string().email('Invalid email address').required('Email is a required field'),
-    phoneNumber: Yup.string().required('Phone number is a required field'),
-    instituteName: Yup.string().required('Institute name is a required field'),
+    organizationName: Yup.string()
+      .required("Full name is a required field")
+      .min(2, "Minimum length is 2 characters"),
+    organizationEmail: Yup.string()
+      .email("Invalid organizationEmail address")
+      .required("organizationEmail is a required field"),
+    organizationPhoneNumber: Yup.string().required(
+      "Phone number is a required field"
+    ),
+    organizationName: Yup.string().required(
+      "Institute name is a required field"
+    ),
+    organizationMessageBody: Yup.string()
+      .required("Institute name is a required field")
+      .min(10, "Minimum length is 10 characters"),
   });
 
-  // Form setup with useFormik
   const formik = useFormik({
     initialValues: {
-      fullName: '',
-      email: '',
-      phoneNumber: '',
-      instituteName: '',
-      BodyName: '',
-      linkedin: '',  // Add this line
+      organizationContactName: "",
+      organizationEmail: "",
+      organizationPhoneNumber: "",
+      organizationMessageBody: "",
+      organizationType: "",
+      organizationName: "",
+      linkedin: "",
     },
     validationSchema: validationSchema,
 
-    onSubmit: async (values) => {
+    onSubmit: async (values, { resetForm }) => {
       try {
-        // Send the form data to the server using Axios
-        const response = await axios.post('endpoint backend kibutz', values);
-
-        // Log the server response (modify as needed)
-        console.log('Server Response:', response.data);
-
-        // Clear the form values after a successful submission
-        formik.resetForm();
+        const response = await axios.post(
+          "https://kibbutzil.online/organizations-forms",
+          values
+        );
+        toast.success("הפרטים נשלחו בהצלחה", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        resetForm({ values: "" });
       } catch (error) {
-        // Handle any errors during the request (e.g., display an error message)
-        console.error('Error submitting form:', error);
+        console.error("Error submitting form:", error);
+
+        toast.error("Something went wrong!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
     },
   });
 
-  <hr></hr>
+  <hr></hr>;
   return (
-    <div id="subscribe" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <div
+      id="subscribe"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
       {/* Centering the form vertically and horizontally */}
       <form
         onSubmit={formik.handleSubmit}
         className="form"
-        style={{ maxWidth: '600px', width: '100%', padding: '20px' }}
+        style={{ maxWidth: "600px", width: "100%", padding: "20px" }}
       >
         <Typography
           variant="h4"
           component="div"
           gutterBottom
           sx={{
-            textAlign: 'center',
-            margin: 'auto',
+            textAlign: "center",
+            margin: "auto",
           }}
         >
-          
           !טופס הרשמה לארגונים
-          
         </Typography>
 
-        <Typography variant="body1" component="div" sx={{ fontSize: '14px', textAlign: 'center' }}>
+        <Typography
+          variant="body1"
+          component="div"
+          sx={{ fontSize: "14px", textAlign: "center" }}
+        >
           !היי שלום לכל הארגונים המצטרפים
           <br />
-          .במסגרת טופס ההרשמה, תצטרכו למלא פרטים שנועדו לנו על מנת שנתחיל בדרך משותפת יחד <br></br>  
-          </Typography>
-
+          .במסגרת טופס ההרשמה, תצטרכו למלא פרטים שנועדו לנו על מנת שנתחיל בדרך
+          משותפת יחד <br></br>
+        </Typography>
 
         <br />
 
-
         <Stack spacing={2}>
-
           <TextField
             fullWidth
-            id="fullName"
-            name="fullName"
+            id="organizationContactName"
+            name="organizationContactName"
             // label="*שם מלא"
             variant="outlined"
             placeholder="שם מלא*"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.fullName}
-            error={formik.touched.fullName && Boolean(formik.errors.fullName)}
-            helperText={formik.touched.fullName && formik.errors.fullName}
+            value={formik.values.organizationContactName}
+            error={
+              formik.touched.organizationContactName &&
+              Boolean(formik.errors.organizationContactName)
+            }
+            helperText={
+              formik.touched.organizationContactName &&
+              formik.errors.organizationContactName
+            }
             InputProps={{
-              sx: { textAlign: 'right' },
-              inputProps: { dir: 'rtl' }, // Set the direction to right-to-left
+              sx: { textAlign: "right" },
+              inputProps: { dir: "rtl" }, // Set the direction to right-to-left
             }}
           />
           <TextField
             fullWidth
-            id="email"
-            name="email"
+            id="organizationEmail"
+            name="organizationEmail"
             // label="*שם מלא"
             variant="outlined"
             placeholder="מייל*"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.email}
-            error={formik.touched.email && Boolean(formik.errors.email)}
-            helperText={formik.touched.email && formik.errors.email}
+            value={formik.values.organizationEmail}
+            error={
+              formik.touched.organizationEmail &&
+              Boolean(formik.errors.organizationEmail)
+            }
+            helperText={
+              formik.touched.organizationEmail &&
+              formik.errors.organizationEmail
+            }
             InputProps={{
-              sx: { textAlign: 'right' },
-              inputProps: { dir: 'rtl' }, // Set the direction to right-to-left
+              sx: { textAlign: "right" },
+              inputProps: { dir: "rtl" }, // Set the direction to right-to-left
             }}
           />
 
-
           <TextField
             fullWidth
-            id="phoneNumber"
-            name="phoneNumber"
+            id="organizationPhoneNumber"
+            name="organizationPhoneNumber"
             variant="outlined"
             placeholder="מספר טלפון*"
             onChange={(e) => {
-              const numericValue = e.target.value.replace(/\D/g, '');
+              const numericValue = e.target.value.replace(/\D/g, "");
               formik.handleChange({
-                target: { name: 'phoneNumber', value: numericValue },
+                target: {
+                  name: "organizationPhoneNumber",
+                  value: numericValue,
+                },
               });
             }}
             onBlur={formik.handleBlur}
-            value={formik.values.phoneNumber}
-            error={formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)}
-            helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
+            value={formik.values.organizationPhoneNumber}
+            error={
+              formik.touched.organizationPhoneNumber &&
+              Boolean(formik.errors.organizationPhoneNumber)
+            }
+            helperText={
+              formik.touched.organizationPhoneNumber &&
+              formik.errors.organizationPhoneNumber
+            }
             InputProps={{
-              sx: { textAlign: 'right' },
-              inputProps: { dir: 'rtl' }, // Set the direction to right-to-left
+              sx: { textAlign: "right" },
+              inputProps: { dir: "rtl" }, // Set the direction to right-to-left
             }}
           />
 
           <TextField
             fullWidth
-            id="instituteName"
-            name="instituteName"
+            id="organizationName"
+            name="organizationName"
             // label="*שם מלא"
             variant="outlined"
             placeholder="שם הגוף"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.instituteName}
-            error={formik.touched.instituteName && Boolean(formik.errors.instituteName)}
-            helperText={formik.touched.instituteName && formik.errors.instituteName}
+            value={formik.values.organizationName}
+            error={
+              formik.touched.organizationName &&
+              Boolean(formik.errors.organizationName)
+            }
+            helperText={
+              formik.touched.organizationName && formik.errors.organizationName
+            }
             InputProps={{
-              sx: { textAlign: 'right' },
-              inputProps: { dir: 'rtl' }, // Set the direction to right-to-left
+              sx: { textAlign: "right" },
+              inputProps: { dir: "rtl" }, // Set the direction to right-to-left
             }}
           />
 
           <FormControl fullWidth variant="outlined">
-            <InputLabel htmlFor="BodyName" sx={{ textAlign: 'right' }} dir="rtl" className="text-end">
+            <InputLabel
+              htmlFor="organizationType"
+              sx={{ textAlign: "right" }}
+              dir="rtl"
+              className="text-end"
+            >
               התחום החברתי של הגוף
             </InputLabel>
             <Select
-              labelId="BodyName-label"
-              id="BodyName"
-              name="BodyName"
-              value={formik.values.BodyName}
+              labelId="organizationType-label"
+              id="organizationType"
+              name="organizationType"
+              value={formik.values.organizationType}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              error={formik.touched.BodyName && Boolean(formik.errors.BodyName)}
-              sx={{ textAlign: 'right' }}
-              inputProps={{ dir: 'rtl' }}
+              error={
+                formik.touched.organizationType &&
+                Boolean(formik.errors.organizationType)
+              }
+              sx={{ textAlign: "right" }}
+              inputProps={{ dir: "rtl" }}
               className="text-end" // Add any additional classes needed for styling
             >
               <MenuItem value="" disabled>
@@ -191,25 +258,45 @@ const RegistrationForm = () => {
             </Select>
           </FormControl>
 
+          <div className="mb-3">
+            <textarea
+              id="organizationMessageBody"
+              name="organizationMessageBody"
+              className={`form-control border-2 text-end ${
+                formik.touched.organizationMessageBody &&
+                formik.errors.organizationMessageBody
+                  ? "is-invalid"
+                  : ""
+              }`}
+              rows={3}
+              {...formik.getFieldProps("organizationMessageBody")}
+              placeholder=".....שלח הודעה"
+            />
+            {formik.touched.organizationMessageBody &&
+              formik.errors.organizationMessageBody && (
+                <div className="invalid-feedback">
+                  {formik.errors.organizationMessageBody}
+                </div>
+              )}
+          </div>
+
           <Stack spacing={2}>
-          <Button
-    type="submit"
-    variant="contained"
-    style={{
-        backgroundColor: '#5059B3',  // צבע הרקע של הכפתור
-        color: '#ffffff',  // צבע הטקסט בכפתור
-    }}
-    size="small"
->
-    !בואו נצא לדרך
-</Button>
+            <Button
+              type="submit"
+              variant="contained"
+              style={{
+                backgroundColor: "#5059B3", // צבע הרקע של הכפתור
+                color: "#ffffff", // צבע הטקסט בכפתור
+              }}
+              size="small"
+            >
+              !בואו נצא לדרך
+            </Button>
           </Stack>
         </Stack>
       </form>
     </div>
   );
 };
-
-
 
 export default RegistrationForm;

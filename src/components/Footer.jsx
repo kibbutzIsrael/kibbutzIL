@@ -22,7 +22,7 @@ const Footer = () => {
                 href="/"
                 className="link-underline link-underline-opacity-0-hover"
               >
-                KibutzIL האתר פותח על ידי חברי קהילת (Paz Mizrahi)
+                KibutzIL האתר פותח על ידי חברי קהילת
               </a>
             </p>
           </div>
