@@ -52,10 +52,7 @@ const RegistrationVolForm = () => {
     yearExperience: Yup.string(),
     linkedin: Yup.string()
       .matches(/^(https?:\/\/)?(www\.)?linkedin\.com\/.*$/, "כתובת לא תקינה")
-      .optional(),
-  }).test("rtl-concat", " ", function (value) {
-    // Add right-to-left mark to the error message
-    return this.createError({ message: "\u200F" });
+      .notRequired(),
   });
 
   const formik = useFormik({
