@@ -16,21 +16,18 @@ import "react-toastify/dist/ReactToastify.css";
 const RegistrationForm = () => {
   const validationSchema = Yup.object({
     organizationContactName: Yup.string()
-      .required("Full name is a required field")
-      .min(2, "Minimum length is 2 characters"),
+      .required("שם מלא הוא שדה חובה")
+      .min(2, "נדרשים לפחות 2 תווים"),
     organizationEmail: Yup.string()
-      .email("Invalid organizationEmail address")
-      .required("organizationEmail is a required field"),
+      .email("נא למלא כתובת מייל תקינה")
+      .required("כתובת המייל הוא שדה חובה"),
     organizationPhoneNumber: Yup.string()
-      .required("Phone number is a required field")
       .required("מספר הטלפון הוא שדה חובה")
       .matches(/^0\d{8,9}$/, "מספר הטלפון מכיל 8 או 9 ספרות (מספרים בלבד)"),
-    organizationName: Yup.string()
-      .required("Institute name is a required field")
-      .required("Full name is a required field"),
+    organizationName: Yup.string().required("שם הארגון הוא שדה חובה"),
     organizationMessageBody: Yup.string()
-      .required("Institute name is a required field")
-      .min(10, "Minimum length is 10 characters"),
+      .required("גוף ההודעה הוא שדה חובה")
+      .min(10, "נדרשים לפחות 10 תווים"),
   });
 
   const formik = useFormik({

@@ -39,7 +39,7 @@ const RegistrationVolForm = () => {
   const validationSchema = Yup.object({
     fullName: Yup.string()
       .required("שם מלא הוא שדה חובה")
-      .min(2, "Minimum length is 2 characters"),
+      .min(2, "נדרשים לפחות 2 תווים"),
     email: Yup.string()
       .email('כתובת דוא"ל אינה חוקית')
       .required('כתובת דוא"ל היא שדה חובה'),
