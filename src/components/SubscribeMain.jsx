@@ -46,14 +46,10 @@ const RegistrationVolForm = () => {
     phoneNumber: Yup.string()
       .required("מספר הטלפון הוא שדה חובה")
       .matches(/^0\d{8,9}$/, "מספר הטלפון אינו תקין"),
-    gender: Yup.string().required("בחירת מגדר היא שדה חובה"),
-    positionUntilNow: Yup.string().required(
-      "יש לציין את התפקידים שבהם השתתפת עד כה"
-    ),
-    fecerPosition: Yup.string().required(
-      "יש לציין את התפקידים שברצונך להשתתף בהם"
-    ),
-    yearExperience: Yup.string().required("יש לציין את מספר שנות הניסיון"),
+    gender: Yup.string(),
+    positionUntilNow: Yup.string(),
+    fecerPosition: Yup.string(),
+    yearExperience: Yup.string(),
     linkedin: Yup.string()
       .matches(/^(https?:\/\/)?(www\.)?linkedin\.com\/.*$/, "כתובת לא תקינה")
       .optional(),
@@ -75,7 +71,7 @@ const RegistrationVolForm = () => {
       BodyName: "",
       location: "",
       CVfile: null,
-      linkedin: "",
+      linkedin: null,
     },
     validationSchema: validationSchema,
     onSubmit: async (values, { resetForm }) => {
