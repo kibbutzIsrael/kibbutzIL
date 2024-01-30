@@ -48,7 +48,7 @@ function DefaultHeader() {
             <img
               src={
                 appliedConfig.appliedHeader === HeaderConfig.DefaultHeader &&
-                  appliedConfig.appliedIntroBg === IntroBgConfig.Default
+                appliedConfig.appliedIntroBg === IntroBgConfig.Default
                   ? "images/logo.png"
                   : "images/logo-light.png"
               }
@@ -75,11 +75,9 @@ function DefaultHeader() {
             }
           >
             <ul className="navbar-nav">
-           
-
-            <li className="nav-item">
+              <li className="nav-item">
                 <Link
-                  className="nav-link "
+                  className="nav-link"
                   smooth="easeInOutQuint"
                   duration={scrollDuration}
                   style={{ cursor: "pointer" }}
@@ -91,11 +89,10 @@ function DefaultHeader() {
                     setIsNavModalClose(true);
                   }}
                 >
-                   צור קשר
+                  צור קשר
                 </Link>
               </li>
-           
-  
+
               <li className="nav-item">
                 <Link
                   className="nav-link "
@@ -127,11 +124,11 @@ function DefaultHeader() {
                     setIsNavModalClose(true);
                   }}
                 >
-                  ארגונים
+                  הרשמה לארגונים{" "}
                 </Link>
               </li>
-   
-                 <li className="nav-item">
+
+              <li className="nav-item">
                 <Link
                   className="nav-link "
                   smooth="easeInOutQuint"

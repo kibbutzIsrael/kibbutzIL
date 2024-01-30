@@ -91,7 +91,7 @@ const RegistrationForm = () => {
       <form
         onSubmit={formik.handleSubmit}
         className="form"
-        style={{ maxWidth: "600px", width: "100%", padding: "20px" }}
+        style={{ maxWidth: "400px", width: "100%", padding: "10px" }}
       >
         <Typography
           variant="h4"
@@ -108,17 +108,17 @@ const RegistrationForm = () => {
         <Typography
           variant="body1"
           component="div"
-          sx={{ fontSize: "14px", textAlign: "center" }}
+          sx={{ fontSize: "14px", textAlign: "end" }}
         >
-          !היי שלום לכל הארגונים המצטרפים
+          {/* !היי שלום לכל הארגונים המצטרפים */}
           <br />
           .במסגרת טופס ההרשמה, תצטרכו למלא פרטים שנועדו לנו על מנת שנתחיל בדרך
-          משותפת יחד <br></br>
+          משותפת יחד
         </Typography>
 
         <br />
 
-        <Stack spacing={2}>
+        <Stack spacing={1}>
           <TextField
             fullWidth
             id="organizationContactName"
@@ -138,8 +138,8 @@ const RegistrationForm = () => {
               formik.errors.organizationContactName
             }
             InputProps={{
-              sx: { textAlign: "right" },
-              inputProps: { dir: "rtl" }, // Set the direction to right-to-left
+              sx: { textAlign: "right", fontSize: "12px" },
+              inputProps: { dir: "rtl" },
             }}
           />
           <TextField
@@ -161,8 +161,8 @@ const RegistrationForm = () => {
               formik.errors.organizationEmail
             }
             InputProps={{
-              sx: { textAlign: "right" },
-              inputProps: { dir: "rtl" }, // Set the direction to right-to-left
+              sx: { textAlign: "right", fontSize: "12px" },
+              inputProps: { dir: "rtl" },
             }}
           />
 
@@ -192,8 +192,8 @@ const RegistrationForm = () => {
               formik.errors.organizationPhoneNumber
             }
             InputProps={{
-              sx: { textAlign: "right" },
-              inputProps: { dir: "rtl" }, // Set the direction to right-to-left
+              sx: { textAlign: "right", fontSize: "12px" },
+              inputProps: { dir: "rtl" },
             }}
           />
 
@@ -215,16 +215,15 @@ const RegistrationForm = () => {
               formik.touched.organizationName && formik.errors.organizationName
             }
             InputProps={{
-              sx: { textAlign: "right" },
-              inputProps: { dir: "rtl" }, // Set the direction to right-to-left
+              sx: { textAlign: "right", fontSize: "12px" },
+              inputProps: { dir: "rtl" },
             }}
           />
 
           <FormControl fullWidth variant="outlined">
             <InputLabel
               htmlFor="organizationType"
-              sx={{ textAlign: "right" }}
-              dir="rtl"
+              sx={{ textAlign: "right", fontSize: "12px" }}
               className="text-end"
             >
               התחום החברתי של הגוף
@@ -241,18 +240,52 @@ const RegistrationForm = () => {
                 Boolean(formik.errors.organizationType)
               }
               sx={{ textAlign: "right" }}
-              inputProps={{ dir: "rtl" }}
+              sx={{ textAlign: "right", fontSize: "12px" }}
               className="text-end" // Add any additional classes needed for styling
             >
-              <MenuItem value="" disabled>
+              <MenuItem
+                value=""
+                disabled
+                sx={{ textAlign: "right", fontSize: "12px" }}
+              >
                 בחר/י את התחום החברתי של הגוף
               </MenuItem>
-              <MenuItem value="בריאות">בריאות</MenuItem>
-              <MenuItem value="חינוך">חינוך</MenuItem>
-              <MenuItem value="חברה ורווחה">חברה ורווחה</MenuItem>
-              <MenuItem value="תעסוקה">תעסוקה</MenuItem>
-              <MenuItem value="סביבה">סביבה</MenuItem>
-              <MenuItem value="אחר">אחר</MenuItem>
+              <MenuItem
+                value="בריאות"
+                sx={{ textAlign: "right", fontSize: "12px" }}
+              >
+                בריאות
+              </MenuItem>
+              <MenuItem
+                sx={{ textAlign: "right", fontSize: "12px" }}
+                value="חינוך"
+              >
+                חינוך
+              </MenuItem>
+              <MenuItem
+                sx={{ textAlign: "right", fontSize: "12px" }}
+                value="חברה ורווחה"
+              >
+                חברה ורווחה
+              </MenuItem>
+              <MenuItem
+                sx={{ textAlign: "right", fontSize: "12px" }}
+                value="תעסוקה"
+              >
+                תעסוקה
+              </MenuItem>
+              <MenuItem
+                sx={{ textAlign: "right", fontSize: "12px" }}
+                value="סביבה"
+              >
+                סביבה
+              </MenuItem>
+              <MenuItem
+                sx={{ textAlign: "right", fontSize: "12px" }}
+                value="אחר"
+              >
+                אחר
+              </MenuItem>
             </Select>
           </FormControl>
 

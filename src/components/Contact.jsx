@@ -234,16 +234,16 @@ const Contact = () => {
               : מוזמנים ליצור איתנו קשר באחד הדרכים הבאות{" "}
             </p>
             <div className="featured-box style-1">
-              <h3>: הכתובת שלנו</h3>
+              <h3>:כתובתנו</h3>
               <p>
-                עיר : תל אביב
+                תל אביב
                 <br />
-                רחוב : אבן גבירול
+                אבן גבירול
                 <br />
               </p>
             </div>
             <div className="featured-box style-1">
-              <h3>: מספר טלפון</h3>
+              <h3>: מספר הטלפון</h3>
               <p>
                 <a href="050-735-3157" onClick={handlePhoneNumberClick}>
                   050-735-3157
@@ -252,13 +252,11 @@ const Contact = () => {
             </div>
             <div className="featured-box style-1">
               <h3>כתובת האתר</h3>
-              <a href="https://kibbutzil-homepage.web.app/">
-                https://kibbutzil-homepage.web.app/
-              </a>
+              <a href="kibbutzil.com">kibbutzil.com</a>
             </div>
             <div className="featured-box style-1">
               <div className="featured-box style-1">
-                <h3>מייל</h3>
+                <h3>כתובת המייל</h3>
                 <p>
                   <a href="mailto:kibbutzil@kibbutzil.community">
                     kibbutzil@kibbutzil.community
