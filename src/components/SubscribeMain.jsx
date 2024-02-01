@@ -171,7 +171,7 @@ const RegistrationVolForm = () => {
           component="div"
           sx={{ fontSize: "14px", textAlign: "right" }}
         >
-          !היי שמחים לראות אותך כאן איתנו
+          !שמחים לראות אותך איתנו
           <br />
           {/* במסגרת הפרויקטים שלנו, המתנדבים שלנו עובדים על פיתוח או הטמעה של
           פתרונות טכנולוגיים<br></br> שנועדו לתת מענה לאתגר חברתי כואב
@@ -179,9 +179,11 @@ const RegistrationVolForm = () => {
           .נשמח למענה קצר על השאלות הבאות
           <br />
           {/* *חשוב לציין שהתנדבות מתאפשרת לבעלי ניסיון של שנה אחת לפחות */}
-          <br></br>
-          <br></br>
+          {/* <br></br> */}
+          {/* <br></br> */}
         </Typography>
+
+        <br />
 
         <Stack spacing={1}>
           <TextField
@@ -266,12 +268,12 @@ const RegistrationVolForm = () => {
               inputProps: { dir: "rtl" },
             }}
           />
-          <FormControl fullWidth variant="outlined">
+          {/* <FormControl fullWidth variant="outlined">
             <InputLabel
               htmlFor="gender"
-              sx={{ textAlign: "right", fontSize: "24px" }}
+              sx={{ textAlign: "right", fontSize: "12px" }}
+              className="text-end"
             >
-              {/* *בחירת מין */}
             </InputLabel>
             <Select
               label="מגדר"
@@ -284,15 +286,34 @@ const RegistrationVolForm = () => {
               helperText={formik.touched.gender && formik.errors.gender}
               displayEmpty
               sx={{ textAlign: "right", fontSize: "12px" }}
+              className="text-end" // Add any additional classes needed for styling
             >
-              <MenuItem value="" disabled>
-                בחר/י מגדר
+              <MenuItem
+                sx={{ textAlign: "right", fontSize: "12px" }}
+                value=""
+                disabled
+              >
+מגדר              </MenuItem>
+              <MenuItem
+                sx={{ textAlign: "right", fontSize: "12px" }}
+                value="male"
+              >
+                זכר
               </MenuItem>
-              <MenuItem value="male">זכר</MenuItem>
-              <MenuItem value="female">נקבה</MenuItem>
-              <MenuItem value="other">מעדיף/ה לא להגיד</MenuItem>
+              <MenuItem
+                sx={{ textAlign: "right", fontSize: "12px" }}
+                value="female"
+              >
+                נקבה
+              </MenuItem>
+              <MenuItem
+                sx={{ textAlign: "right", fontSize: "12px" }}
+                value="other"
+              >
+                מעדיף/ה לא להגיד
+              </MenuItem>
             </Select>
-          </FormControl>
+          </FormControl> */}
           <TextField
             fullWidth
             id="positionUntilNow"

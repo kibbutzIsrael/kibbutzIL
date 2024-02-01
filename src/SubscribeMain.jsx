@@ -110,7 +110,7 @@ const RegistrationVolForm = () => {
           component="div"
           gutterBottom
           sx={{
-            textAlign: "center",
+            textAlign: "right",
             margin: "auto",
           }}
         >
@@ -122,7 +122,7 @@ const RegistrationVolForm = () => {
           component="div"
           sx={{ fontSize: "14px", textAlign: "end" }}
         >
-          !היי שמחים לראות אותך כאן איתנו
+          !שמחים לראות אותך כאן איתנו
           <br />
           במסגרת הפרויקטים שלנו, המתנדבים שלנו עובדים על פיתוח או הטמעה של
           פתרונות טכנולוגיים<br></br> שנועדו לתת מענה לאתגר חברתי כואב
@@ -133,6 +133,8 @@ const RegistrationVolForm = () => {
           <br></br>
           <br></br>
         </Typography>
+
+        <br />
 
         <Stack spacing={1}>
           <TextField

@@ -136,9 +136,16 @@ const Contact = () => {
             <p className="lead text-center mb-5">
               .אנחנו זמינים עבורכם לכל שאלה{" "}
             </p>
-            <form id="contact-form" ref={form} onSubmit={formik.handleSubmit}>
+            <form
+              id="contact-form"
+              ref={form}
+              onSubmit={formik.handleSubmit}
+              style={{ maxWidth: "400px", width: "100%", padding: "10px" }}
+            >
               <div className="mb-3">
                 <input
+                  size="small"
+                  style={{ fontSize: "14px", textAlign: "end" }}
                   id="name"
                   name="contactName"
                   type="text"
@@ -158,6 +165,7 @@ const Contact = () => {
               </div>
               <div className="mb-3">
                 <input
+                  style={{ fontSize: "14px", textAlign: "end" }}
                   id="email"
                   name="contactEmail"
                   type="email"
@@ -177,6 +185,7 @@ const Contact = () => {
               </div>
               <div className="mb-3">
                 <textarea
+                  style={{ fontSize: "14px", textAlign: "end" }}
                   id="form-contactMessageBody"
                   name="contactMessageBody"
                   className={`form-control border-2 text-end ${
@@ -235,30 +244,62 @@ const Contact = () => {
             </p>
             <div className="featured-box style-1">
               <h3>:כתובתנו</h3>
-              <p>
-                תל אביב
-                <br />
-                אבן גבירול
-                <br />
-              </p>
+              <p>באר שבע, אבן גבירול</p>
             </div>
             <div className="featured-box style-1">
               <h3>: מספר הטלפון</h3>
               <p>
-                <a href="050-735-3157" onClick={handlePhoneNumberClick}>
+                <a
+                  style={{
+                    fontSize: "inherit",
+                    lineHeight: "inherit",
+                    color: "inherit", // Inherit color from parent
+                    textDecoration: "none", // Remove underline
+                  }}
+                  href="050-735-3157"
+                  onClick={handlePhoneNumberClick}
+                >
                   050-735-3157
                 </a>
               </p>
             </div>
             <div className="featured-box style-1">
               <h3>כתובת האתר</h3>
-              <a href="kibbutzil.com">kibbutzil.com</a>
+              <p>
+                <a
+                  style={{
+                    fontSize: "inherit",
+                    lineHeight: "inherit",
+                    color: "inherit", // Inherit color from parent
+                    textDecoration: "none", // Remove underline
+                  }}
+                  href="kibbutzil.com"
+                  onClick={handlePhoneNumberClick}
+                >
+                  kibbutzil.com{" "}
+                </a>
+              </p>
             </div>
             <div className="featured-box style-1">
               <div className="featured-box style-1">
                 <h3>כתובת המייל</h3>
-                <p>
-                  <a href="mailto:kibbutzil@kibbutzil.community">
+                <p
+                  style={{
+                    margin: "0",
+                    padding: "0",
+                    fontSize: "inherit",
+                    lineHeight: "inherit",
+                  }}
+                >
+                  <a
+                    style={{
+                      fontSize: "inherit",
+                      lineHeight: "inherit",
+                      color: "inherit", // Inherit color from parent
+                      textDecoration: "none", // Remove underline
+                    }}
+                    href="mailto:kibbutzil@kibbutzil.community"
+                  >
                     kibbutzil@kibbutzil.community
                   </a>
                 </p>

@@ -98,7 +98,7 @@ const RegistrationForm = () => {
           component="div"
           gutterBottom
           sx={{
-            textAlign: "center",
+            textAlign: "right",
             margin: "auto",
           }}
         >
@@ -125,6 +125,7 @@ const RegistrationForm = () => {
             name="organizationContactName"
             // label="*שם מלא"
             variant="outlined"
+            size="small"
             placeholder="שם מלא*"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -144,6 +145,7 @@ const RegistrationForm = () => {
           />
           <TextField
             fullWidth
+            size="small"
             id="organizationEmail"
             name="organizationEmail"
             // label="*שם מלא"
@@ -168,6 +170,7 @@ const RegistrationForm = () => {
 
           <TextField
             fullWidth
+            size="small"
             id="organizationPhoneNumber"
             name="organizationPhoneNumber"
             variant="outlined"
@@ -199,6 +202,7 @@ const RegistrationForm = () => {
 
           <TextField
             fullWidth
+            size="small"
             id="organizationName"
             name="organizationName"
             // label="*שם מלא"
@@ -226,7 +230,7 @@ const RegistrationForm = () => {
               sx={{ textAlign: "right", fontSize: "12px" }}
               className="text-end"
             >
-              התחום החברתי של הגוף
+              {/* התחום החברתי */}
             </InputLabel>
             <Select
               labelId="organizationType-label"
@@ -239,16 +243,16 @@ const RegistrationForm = () => {
                 formik.touched.organizationType &&
                 Boolean(formik.errors.organizationType)
               }
-              sx={{ textAlign: "right" }}
               sx={{ textAlign: "right", fontSize: "12px" }}
               className="text-end" // Add any additional classes needed for styling
+              size="small"
             >
               <MenuItem
                 value=""
                 disabled
                 sx={{ textAlign: "right", fontSize: "12px" }}
               >
-                בחר/י את התחום החברתי של הגוף
+                התחום החברתי
               </MenuItem>
               <MenuItem
                 value="בריאות"
@@ -289,7 +293,7 @@ const RegistrationForm = () => {
             </Select>
           </FormControl>
 
-          <div className="mb-3">
+          <div className="mb-3" sx={{ textAlign: "right", fontSize: "12px" }}>
             <textarea
               id="organizationMessageBody"
               name="organizationMessageBody"
@@ -301,7 +305,9 @@ const RegistrationForm = () => {
               }`}
               rows={3}
               {...formik.getFieldProps("organizationMessageBody")}
-              placeholder=".....שלח הודעה"
+              // placeholder=".....שלח הודעה"
+              sx={{ textAlign: "right", fontSize: "12px" }}
+              size="small"
             />
             {formik.touched.organizationMessageBody &&
               formik.errors.organizationMessageBody && (

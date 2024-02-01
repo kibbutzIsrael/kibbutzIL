@@ -21,6 +21,12 @@ const Footer = () => {
               <a
                 href="/"
                 className="link-underline link-underline-opacity-0-hover"
+                style={{
+                  fontSize: "inherit",
+                  lineHeight: "inherit",
+                  color: "inherit", // Inherit color from parent
+                  textDecoration: "none", // Remove underline
+                }}
               >
                 KibutzIL האתר פותח על ידי חברי קהילת
               </a>
